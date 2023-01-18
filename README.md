@@ -1,24 +1,29 @@
+# ARCT-TECH
+
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# -SETUP-
 
-Things you may want to cover:
+After cloning from repository, make sure to run these commands in terminal.
 
-* Ruby version
+- $ bundle
+- $ yarn
+- $ rails db:create
+- $ rails db:migrate
 
-* System dependencies
+---
 
-* Configuration
+# What we did
 
-* Database creation
+1. In order to create the user schema
 
-* Database initialization
+- $ rails g devise:views
 
-* How to run the test suite
+2. In order to create the controller file for the user
 
-* Services (job queues, cache servers, search engines, etc.)
+- $ rails g controller Users index show
 
-* Deployment instructions
+3. created a new file app>controllers>
 
-* ...
+- registration_controller.rb
+  In private we added the method for when a user is signing up and for when a user wants to update their information
