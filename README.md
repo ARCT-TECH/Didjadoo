@@ -4,7 +4,7 @@
 
 # -SETUP-
 
-After cloning from repository, make sure to run these commands in terminal.
+After cloning from repository and cd into didjadoo-app, make sure to run these commands in terminal.
 
 - $ bundle
 - $ yarn
@@ -27,3 +27,5 @@ After cloning from repository, make sure to run these commands in terminal.
 
 - registration_controller.rb
   In private we added the method for when a user is signing up and for when a user wants to update their information
+
+4. Created RSPEC testing and Validations for User and Tasks
