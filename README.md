@@ -1,4 +1,5 @@
-# ARCT-TECH
+               # ARCT-TECH
+# Didjadoo
 
 We have created a bodacious app called DidjaDoo.
 As an adult in the 21st century, we are all plagued with the burden of having lists and goals. The purpose of this app is to assist users with their goals. This is done by having a Didjadoo list that will align with the user’s ultimate goal(s). This website is the visual representation of a user’s lists and goals in one.
@@ -39,3 +40,5 @@ After cloning from repository and cd into didjadoo-app, make sure to run these c
 - ensure to save the user (user.save!) in order to make a task
 
 6. Created a seed for task to populate the database with the initial required data.
+
+7. Created methods and RSPEC testing for Users and Tasks
