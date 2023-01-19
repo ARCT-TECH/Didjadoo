@@ -99,3 +99,20 @@ describe 'PATCHES /update' do
     expect(json['priority']).to include "can't be blank"
   end
 end
+
+describe 'DELETE /destroy' do
+  it 'can delete a task' do
+    User.create(name: "Renita", email: "hello@world.com", password: "1234hi")
+    user = User.first
+    user.tasks.create(
+      name: 'Yoga',
+      priority: 'high',
+      user_id: user.id
+    )
+
+    task = Task.last
+    delete "/tasks/#{task.id}"
+    expect(response).to have_http_status(200)
+    expect(Task.all).to be_empty
+  end
+end
