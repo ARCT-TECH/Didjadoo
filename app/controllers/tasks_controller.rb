@@ -22,6 +22,15 @@ class TasksController < ApplicationController
         end
     end
 
+    def destroy
+        task = Task.find(params[:id])
+        if task.destroy
+            render json: task
+        else
+            render json: task.errors
+        end
+    end
+
     private
     def task_params
       params.require(:task).permit(:name, :description, :priority, :progress, :private, :deadline, :user_id)
