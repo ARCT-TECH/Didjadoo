@@ -19,8 +19,6 @@ import Notfound from "./pages/Notfound";
 
 const App = (props) => {
   const [users, setUsers] = useState([]);
-  useEffect(() => readUsers(), []);
-  useEffect(() => readTasks(), []);
 
 
 <BrowserRouter>
