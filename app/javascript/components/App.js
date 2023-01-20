@@ -19,7 +19,83 @@ import Notfound from "./pages/Notfound";
 
 const App = (props) => {
   const [users, setUsers] = useState([]);
+  useEffect(() => readUsers(), []);
+  useEffect(() => readTasks(), []);
 
+  const readUsers = () => {
+    fetch("/users")
+      .then((response) => response.json())
+      .then((payload) => {
+        setUsers(payload);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  
+  const updateUser = (user, id) => {
+    fetch(`http://localhost:3000/users/${id}`, {
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "PATCH",
+    })
+      .then((response) => response.json())
+      .then(() => readUsers())
+      .catch((errors) => console.log("User update errors:", errors));
+  };
+
+
+  const [tasks, setTasks] = useState([]);
+
+  console.log("Tasks:", tasks);
+  const readTasks = () => {
+    fetch("/tasks")
+      .then((response) => response.json())
+      .then((payload) => {
+        setTasks(payload);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const createTask = (task) => {
+    console.log(task);
+    fetch("http://localhost:3000/tasks", {
+      body: JSON.stringify(task),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    })
+      .then((response) => response.json())
+      .then((payload) => readTasks())
+      .catch((errors) => console.log("Task create errors:", errors));
+  };
+
+  const updateTask = (task, id) => {
+    fetch(`http://localhost:3000/tasks/${id}`, {
+      body: JSON.stringify(task),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "PATCH",
+    })
+      .then((response) => response.json())
+      .then(() => readTasks())
+      .catch((errors) => console.log("Task update errors:", errors));
+  };
+
+  const deleteTask = (id) => {
+    fetch(`http://localhost:3000/tasks/${id}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((payload) => readTasks())
+      .catch((errors) => console.log("delete errors:", errors));
+  };
 
 <BrowserRouter>
   <Header {...props} />
