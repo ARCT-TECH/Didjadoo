@@ -1,21 +1,16 @@
 import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Footer from "./components/Footer"
-import Header from "./components/Header"
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 import YourFriends from "./pages/YourFriends";
 import AboutUs from "./pages/AboutUs";
-import LandingPage from "./pages/LandingPage"
-import MyProfile  from ".pages/MyProfile"
-import NewTask from ".pages/NewTask"
+import LandingPage from "./pages/LandingPage";
+import NewTask from "./pages/NewTask";
 import ProtectedIndex from "./pages/ProtectedIndex";
-import UpdateTask from "./pages/UpdateTask"
-import YourFriends from "./pages/YourFriends";
-import { render } from "react-dom";
+import UpdateTask from "./pages/UpdateTask";
 import UserShow from "./pages/UserShow";
 import UpdateUser from "./pages/UpdateUser";
-import Notfound from "./pages/Notfound";
- 
+import NotFound from "./pages/NotFound";
 
 const App = (props) => {
   const [users, setUsers] = useState([]);
@@ -31,7 +26,6 @@ const App = (props) => {
       .catch((error) => console.log(error));
   };
 
-  
   const updateUser = (user, id) => {
     fetch(`http://localhost:3000/users/${id}`, {
       body: JSON.stringify(user),
@@ -44,7 +38,6 @@ const App = (props) => {
       .then(() => readUsers())
       .catch((errors) => console.log("User update errors:", errors));
   };
-
 
   const [tasks, setTasks] = useState([]);
 
@@ -96,47 +89,44 @@ const App = (props) => {
       .then((payload) => readTasks())
       .catch((errors) => console.log("delete errors:", errors));
   };
-
-<BrowserRouter>
-  <Header {...props} />
-    <Routes>
-      <Route exact path="/" element={<LandingPage {...props} />} />
-      <Route path="/users/:id"
-          element={<UserShow users={users} />}
-        />
-      <Route
-          path="/yourfriends"
-          element={<YourFriends users={users} />}
-        />
-      <Route
+  return (
+    <BrowserRouter>
+      <Header {...props} />
+      <Routes>
+        <Route exact path="/" element={<LandingPage {...props} />} />
+        <Route path="/users/:id" element={<UserShow users={users} />} />
+        <Route path="/yourfriends" element={<YourFriends users={users} />} />
+        <Route
           path="/protectedindex"
-          element={<ProtectedIndex users={users} {...props} createTask={createTask} updateTask={updateTask}/>}
-        />
-      <Route
-          path="/newtask"
           element={
-            <NewTask createTask={createTask} {...props} />
+            <ProtectedIndex
+              users={users}
+              {...props}
+              createTask={createTask}
+              updateTask={updateTask}
+            />
           }
         />
         <Route
-          path="/aboutus"
+          path="/newtask"
+          element={<NewTask createTask={createTask} {...props} />}
+        />
+        <Route path="/aboutus" element={<AboutUs />} />
+        <Route
+          path="/edittask/:id"
           element={
-            <AboutUs />
+            <UpdateTask users={users} updateTask={updateTask} {...props} />
           }
         />
-      <Route path="/edittask/:id" element={<UpdateTask users={users} updateTask={updateTask} {...props}/>}  />
 
-      <Route
+        <Route
           path="/updateuser/:id"
-          element={
-            <UpdateUser updateUser={updateUser} {...props} />
-            
-          }
+          element={<UpdateUser updateUser={updateUser} {...props} />}
         />
-      <Route element={<NotFound />} />
-  
-    </Routes>
+        <Route element={<NotFound />} />
+      </Routes>
       <Footer />
-  </BrowserRouter>
-}
+    </BrowserRouter>
+  );
+};
 export default App;
