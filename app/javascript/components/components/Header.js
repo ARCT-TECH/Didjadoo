@@ -1,7 +1,13 @@
-import React from "react";
+import React from "react"
+import Navigation from "./Navigation"
 
-const Header = () => {
-  return <div>Header</div>;
-};
-
-export default Header;
+const Header = (props) => {
+  return (
+    <>
+   <h1>HEADAAH</h1>
+      <Navigation {...props} />
+    </>
+  )
+}
+   
+export default Header
