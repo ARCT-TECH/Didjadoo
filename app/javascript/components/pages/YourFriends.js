@@ -1,9 +1,47 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import {
+  Card,
+  CardBody,
+  CardTitle,
+  CardText,
+  ListGroup,
+  ListGroupItem,
+  Button,
+} from "reactstrap";
 
-const YourFriends = () => {
-  return <div>YourFriends</div>;
+const YourFriends = ({ users }) => {
+  return (
+    <div>
+      {users?.map((users, index) => {
+        return (
+          <>
+            <Card
+              style={{
+                width: "18rem",
+              }}
+            >
+              <img alt="Card" src={users.profilepic} />
+              <CardBody>
+                <CardTitle tag="h5">Name: ${users.name}</CardTitle>
+                <CardText>Bio:{users.bio}</CardText>
+              </CardBody>
+              <ListGroup flush>
+                <ListGroupItem>Task one</ListGroupItem>
+                <ListGroupItem>Task two</ListGroupItem>
+                <ListGroupItem>Task three</ListGroupItem>
+              </ListGroup>
+              <CardBody>
+                <NavLink to={`/usershow/${users.id}`}>
+                  <Button>View Profile</Button>
+                </NavLink>
+              </CardBody>
+            </Card>
+          </>
+        );
+      })}
+    </div>
+  );
 };
 
 export default YourFriends;
-
