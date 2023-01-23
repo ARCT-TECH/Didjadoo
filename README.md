@@ -1,4 +1,5 @@
                # ARCT-TECH
+
 # Didjadoo
 
 We have created a bodacious app called DidjaDoo.
@@ -14,6 +15,7 @@ After cloning from repository and cd into didjadoo-app, make sure to run these c
 - $ bundle
 - $ yarn
 - $ rails db:create
+- $ rails db:reset
 - $ rails db:migrate
 
 ---

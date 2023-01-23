@@ -1,11 +1,12 @@
 import React from "react";
 import { BrowserRouter, NavLink } from "react-router-dom";
 
-const Footer = () => {
+const Footer = (props) => {
   return (
-  <BrowserRouter to= {`/AboutUs/`}>
-  <div >AboutUs</div>
-   </BrowserRouter>
-)};
+    <NavLink to="/AboutUs">
+      <div>AboutUs</div>
+    </NavLink>
+  );
+};
 
 export default Footer;
