@@ -2,7 +2,8 @@
 
 # Didjadoo
 
-We have created a bodacious app called DidjaDoo.
+We have created a bodacious app called Didjadoo.
+At its core, Didjadoo is a Task Management App.
 As an adult in the 21st century, we are all plagued with the burden of having lists and goals. The purpose of this app is to assist users with their goals. This is done by having a Didjadoo list that will align with the user’s ultimate goal(s). This website is the visual representation of a user’s lists and goals in one.
 This APP has a feature to include your friends, family, and colleagues in your tasks, for not only motivation but accountability. We want the users to have the capability of personalization. We are excited to give the public a viable product, that can ease every day burdens.
 
@@ -46,3 +47,7 @@ After cloning from repository and cd into didjadoo-app, make sure to run these c
 6. Created a seed for task to populate the database with the initial required data.
 
 7. Created methods and RSPEC testing for Users and Tasks
+
+8. Created pages and Jest Testing for Header, Footer, Navigation and AboutUs
+
+9.
