@@ -15,8 +15,12 @@ After cloning from repository and cd into didjadoo-app, make sure to run these c
 
 - $ bundle
 - $ yarn
-- $ rails db:create
+  (Returning Dev)
 - $ rails db:reset
+- $ rails db:migrate
+  (New Dev)
+- $ rails db:create
+- $ rails db:seed
 - $ rails db:migrate
 
 # !!!! Make sure the NotFound.js file is spelled correctly!!!!
