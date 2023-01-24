@@ -25,7 +25,6 @@ const App = (props) => {
       })
       .catch((error) => console.log(error));
   };
-  console.log("from app.js", users);
   const updateUser = (user, id) => {
     fetch(`http://localhost:3000/users/${id}`, {
       body: JSON.stringify(user),
@@ -41,7 +40,6 @@ const App = (props) => {
 
   const [tasks, setTasks] = useState([]);
 
-  console.log("Tasks:", tasks);
   const readTasks = () => {
     fetch("/tasks")
       .then((response) => response.json())
