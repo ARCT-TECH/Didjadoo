@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { useNavigate } from "react-router-dom";
 
-const NewTask = ({ createTask, current_user }) => {
+const newTask = ({ createTask, current_user }) => {
   const navigate = useNavigate();
-  const [NewTask, setNewTask] = useState({
+  const [newTask, setnewTask] = useState({
     name: "",
     priority: "",
     description: "",
@@ -12,15 +12,15 @@ const NewTask = ({ createTask, current_user }) => {
   });
 
   const handleChange = (e) => {
-    setNewTask({ ...NewTask, [e.target.name]: e.target.value });
+    setnewTask({ ...newTask, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = () => {
-    if (NewTask.name==="" || NewTask.priority==="")
+    if (newTask.name==="" || newTask.priority==="")
     {
       alert ("Please enter name and priority")
     }else{
-    createTask(NewTask);
+    createTask(newTask);
     navigate("/protectedindex");
   }
   };
@@ -34,28 +34,28 @@ const NewTask = ({ createTask, current_user }) => {
             type="text"
             name="name"
             onChange={handleChange}
-            value={NewTask.name}
+            value={newTask.name}
           />
           <Label for="priority">Priority</Label>
           <Input
             type="text"
             name="priority"
             onChange={handleChange}
-            value={NewTask.priority}
+            value={newTask.priority}
           />
           <Label for="description">Description</Label>
           <Input
             type="text"
             name="description"
             onChange={handleChange}
-            value={NewTask.description}
+            value={newTask.description}
           />
           <Label for="deadline">deadline</Label>
           <Input
             type="date"
             name="deadline"
             onChange={handleChange}
-            value={NewTask.deadline}
+            value={newTask.deadline}
           />
            </FormGroup>
         <Button onClick={handleSubmit}>Submit</Button>
@@ -64,4 +64,4 @@ const NewTask = ({ createTask, current_user }) => {
   );
 };
 
-export default NewTask;
+export default newTask;
