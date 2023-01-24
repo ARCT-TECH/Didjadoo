@@ -12,12 +12,16 @@ const users = [
 ];
 
 describe("<YourFriends />", () => {
+  const div = document?.createElement("div");
   it("renders without crashing", () => {
-    const div = document?.createElement("div");
-    render(<YourFriends />, div);
+    render(
+      <BrowserRouter>
+        <YourFriends users={users}/>, div
+      </BrowserRouter>
+    );
     users.forEach((users) => {
       // const userName = screen.getAllByText(users.name);
-      expect(screen.getByText("View Profile")).toBeInTheDocument();
+      expect(screen.getByText("Task one")).toBeInTheDocument();
     });
   });
 });
