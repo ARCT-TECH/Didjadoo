@@ -100,8 +100,9 @@ const App = (props) => {
           path="/protectedindex"
           element={
             <ProtectedIndex
-              users={users}
               {...props}
+              users={users}
+              tasks={tasks}
               createTask={createTask}
               updateTask={updateTask}
             />
