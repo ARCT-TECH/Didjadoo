@@ -25,7 +25,6 @@ const App = (props) => {
       })
       .catch((error) => console.log(error));
   };
-
   const updateUser = (user, id) => {
     fetch(`http://localhost:3000/users/${id}`, {
       body: JSON.stringify(user),
@@ -41,7 +40,6 @@ const App = (props) => {
 
   const [tasks, setTasks] = useState([]);
 
-  console.log("Tasks:", tasks);
   const readTasks = () => {
     fetch("/tasks")
       .then((response) => response.json())
@@ -93,7 +91,11 @@ const App = (props) => {
     <BrowserRouter>
       <Header {...props} />
       <Routes>
-        <Route exact path="/" element={<LandingPage {...props} />} />
+        <Route
+          exact
+          path="/"
+          element={<LandingPage {...props} users={users} />}
+        />
         <Route path="/users/:id" element={<UserShow users={users} />} />
         <Route path="/yourfriends" element={<YourFriends users={users} />} />
         <Route
