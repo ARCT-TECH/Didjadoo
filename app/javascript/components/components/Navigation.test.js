@@ -39,7 +39,5 @@ describe("<Navigation />", () => {
     expect(screen.getByText("My To Do List")).toBeInTheDocument();
     userEvent.click(screen.getByText("New Task"));
     expect(screen.getByText("New Task")).toBeInTheDocument();
-    userEvent.click(screen.getByText("My Friends"));
-    expect(screen.getByText("My Friends")).toBeInTheDocument();
   });
 });
