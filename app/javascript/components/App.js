@@ -96,7 +96,7 @@ const App = (props) => {
           path="/"
           element={<LandingPage {...props} users={users} />}
         />
-        <Route path="/users/:id" element={<UserShow users={users} />} />
+        <Route path="/usershow/:id" element={<UserShow users={users} tasks={tasks}/>} />
         <Route path="/yourfriends" element={<YourFriends users={users} />} />
         <Route
           path="/protectedindex"
