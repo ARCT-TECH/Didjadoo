@@ -4,29 +4,20 @@ import YourFriends from "./YourFriends";
 import { BrowserRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 
+const users = [
+  {
+    name: "Harry Potter",
+    bio: "Little Whinging",
+  },
+];
+
 describe("<YourFriends />", () => {
   it("renders without crashing", () => {
-    const div = document.createElement("div");
+    const div = document?.createElement("div");
     render(<YourFriends />, div);
-    expect(screen.getByText("View Profile")).toBeInTheDocument();
+    users.forEach((users) => {
+      // const userName = screen.getAllByText(users.name);
+      expect(screen.getByText("View Profile")).toBeInTheDocument();
+    });
   });
 });
-// describe("<YourFriends />", () => {
-//   it("renders without crashing", () => {
-//     const div = document.createElement("div");
-//     render(
-//       <BrowserRouter>
-//         <YourFriends />
-//       </BrowserRouter>,
-//       div
-//     );
-//   });
-//   it("has clickable links", () => {
-//     render(
-//       <BrowserRouter>
-//         <ApartmentShow />
-//       </BrowserRouter>
-//     );
-
-//   });
-// });

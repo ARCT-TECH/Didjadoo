@@ -21,10 +21,10 @@ const YourFriends = ({ users }) => {
                 width: "18rem",
               }}
             >
-              <img alt="Card" src={users.profilepic} />
+              <img alt="Card" src={users?.profilepic} />
               <CardBody>
-                <CardTitle tag="h5">Name: ${users.name}</CardTitle>
-                <CardText>Bio:{users.bio}</CardText>
+                <CardTitle tag="h5">{users?.name}</CardTitle>
+                <CardText>Bio:{users?.bio}</CardText>
               </CardBody>
               <ListGroup flush>
                 <ListGroupItem>Task one</ListGroupItem>
@@ -32,7 +32,7 @@ const YourFriends = ({ users }) => {
                 <ListGroupItem>Task three</ListGroupItem>
               </ListGroup>
               <CardBody>
-                <NavLink to={`/usershow/${users.id}`}>
+                <NavLink to={`/usershow/${users?.id}`}>
                   <Button>View Profile</Button>
                 </NavLink>
               </CardBody>
