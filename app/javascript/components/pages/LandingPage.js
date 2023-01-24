@@ -8,6 +8,7 @@ const LandingPage = ({
   new_user_route,
   sign_in_route,
   sign_out_route,
+  users,
 }) => {
   console.log("Logged In:", logged_in);
   console.log("Current User:", current_user);
@@ -37,7 +38,9 @@ const LandingPage = ({
         </>
       )}
 
-      <div className="home-main">{logged_in && <YourFriends />}</div>
+      <div className="home-main">
+        {logged_in && <YourFriends users={users} />}
+      </div>
     </>
   );
 };

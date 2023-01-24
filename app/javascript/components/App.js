@@ -93,7 +93,11 @@ const App = (props) => {
     <BrowserRouter>
       <Header {...props} />
       <Routes>
-        <Route exact path="/" element={<LandingPage {...props} />} />
+        <Route
+          exact
+          path="/"
+          element={<LandingPage {...props} users={users} />}
+        />
         <Route path="/users/:id" element={<UserShow users={users} />} />
         <Route path="/yourfriends" element={<YourFriends users={users} />} />
         <Route

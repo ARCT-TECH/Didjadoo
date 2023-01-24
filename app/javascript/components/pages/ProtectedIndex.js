@@ -14,13 +14,13 @@ const ProtectedIndex = ({
 
     return (
       <div>
-        <div className="ProfilePic">{current_user.profilepic}</div>
+        <img className="ProfilePic" src={current_user.profilepic}></img>
         <p>Welcome back, {current_user.name}</p>
         <div>{current_user.bio}</div>
-        <button>Edit my Profile</button>
-        <NavLink to="/NewTask" className="nav-link">
-                  New Task
-                </NavLink>
+        <NavLink to={`/updateuser/${current_user.id}`}>Edit my Profile</NavLink>
+        <p>
+          <NavLink to="/NewTask">New Task</NavLink>
+        </p>
         {current_user &&
           myTasks.map((task, index) => {
             return (
