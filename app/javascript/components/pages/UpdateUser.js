@@ -20,7 +20,6 @@ const UpdateUser = ({ updateUser, current_user }) => {
     } else {
       updateUser(userParams, current_user.id);
       navigate("/protectedindex");
-      location.reload();
     }
   };
   return (
@@ -42,7 +41,7 @@ const UpdateUser = ({ updateUser, current_user }) => {
             onChange={handleChange}
             value={userParams.profilepic}
           />
-          <Label for="bio">Tell us about you.</Label>
+          <Label for="bio">Tell us about you</Label>
           <Input
             type="text"
             name="bio"

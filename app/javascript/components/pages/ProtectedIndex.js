@@ -11,12 +11,12 @@ const ProtectedIndex = ({
 }) => {
   if (logged_in) {
     const myTasks = tasks?.filter((task) => task.user_id === current_user.id);
-
+    const user = users?.find((user) => user.id === current_user.id);
     return (
       <div>
-        <img className="ProfilePic" src={current_user.profilepic}></img>
-        <p>Welcome back, {current_user.name}</p>
-        <div>{current_user.bio}</div>
+        <img className="ProfilePic" src={user.profilepic}></img>
+        <p>Welcome back, {user.name}</p>
+        <div>{user.bio}</div>
         <NavLink to={`/updateuser/${current_user.id}`}>Edit my Profile</NavLink>
         <p>
           <NavLink to="/NewTask">New Task</NavLink>
