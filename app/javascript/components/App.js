@@ -115,7 +115,7 @@ const App = (props) => {
         <Route
           path="/edittask/:id"
           element={
-            <UpdateTask users={users} updateTask={updateTask} {...props} />
+            <UpdateTask tasks={tasks} user={props.current_user} updateTask={updateTask} {...props} />
           }
         />
 
