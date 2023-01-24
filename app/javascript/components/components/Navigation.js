@@ -42,11 +42,7 @@ const Navigation = ({
               New Task
             </NavLink>
           )}
-          {logged_in && (
-            <NavLink to="/YourFriends" className="nav-link">
-              My Friends
-            </NavLink>
-          )}
+        
         </NavItem>
       </Nav>
     </>
