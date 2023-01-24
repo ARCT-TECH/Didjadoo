@@ -13,43 +13,41 @@ const Navigation = ({
     <>
       <Nav>
         <NavItem>
-          <NavLink to="/" className="nav-link">
-            Home
+          <NavLink to="/yourfriends/" className="nav-link">
+            Didjadooers
           </NavLink>
-         
-          {logged_in && (
 
+          {logged_in && (
             <a href={sign_out_route} className="nav-link">
               Log Out
             </a>
-        )}
-        {!logged_in && (
+          )}
+          {!logged_in && (
             <a href={sign_in_route} className="nav-link">
               Log In
             </a>
-        )}
-        {!logged_in && (
+          )}
+          {!logged_in && (
             <a href={new_user_route} className="nav-link">
               Sign Up
             </a>
-        )}
-        {logged_in && (
+          )}
+          {logged_in && (
             <NavLink to="/protectedindex" className="nav-link">
-             My To Do List
+              My To Do List
             </NavLink>
-        )}
-        {logged_in && (
+          )}
+          {logged_in && (
             <NavLink to="/NewTask" className="nav-link">
               New Task
             </NavLink>
-        )}
-        {logged_in && (
+          )}
+          {logged_in && (
             <NavLink to="/YourFriends" className="nav-link">
               My Friends
             </NavLink>
-        )}
+          )}
         </NavItem>
-        
       </Nav>
     </>
   );

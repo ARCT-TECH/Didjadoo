@@ -20,8 +20,8 @@ describe("<Navigation />", () => {
         <Navigation />
       </BrowserRouter>
     );
-    userEvent.click(screen.getByText("Home"));
-    expect(screen.getByText("Home")).toBeInTheDocument();
+    userEvent.click(screen.getByText("Didjadooers"));
+    expect(screen.getByText("Didjadooers")).toBeInTheDocument();
     userEvent.click(screen.getByText("Log In"));
     expect(screen.getByText("Log In")).toBeInTheDocument();
     userEvent.click(screen.getByText("Sign Up"));
