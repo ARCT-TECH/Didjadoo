@@ -50,4 +50,4 @@ After cloning from repository and cd into didjadoo-app, make sure to run these c
 
 8. Created pages and Jest Testing for Header, Footer, Navigation and AboutUs
 
-9.
+9. Created ProtectedIndex for logged in User to create/read/update/delete Task and/or Profile
