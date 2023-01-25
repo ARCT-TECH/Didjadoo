@@ -256,6 +256,7 @@ DEPENDENCIES
   devise (~> 4.8)
   importmap-rails
   jbuilder
+  nokogiri (~> 1.14)
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4)
