@@ -55,3 +55,5 @@ After cloning from repository and cd into didjadoo-app, make sure to run these c
 9. Created ProtectedIndex for logged in User to create/read/update/delete Task and/or Profile along with the Jest Testing page
 
 10. Created an unprotected show page with jest Testing page
+
+11. Created AboutUs page with Jest Testing page
