@@ -11,7 +11,7 @@ const AboutUs = () => {
     </div>
     <div>
       <img src="https://t4.ftcdn.net/jpg/01/38/35/33/360_F_138353307_iIrtMa8uMNNSxlE4snmCSSJCMkfAfEcD.jpg" />
-      Renita: Renita is transitioning to web development from a career in behavior sciences, where she mostly worked with children, gathering, analyzing, and reporting data about their progress in ABA therapy. In her free time she loves gardening, crossword puzzles, and participating in speed jigsaw-puzzle competitions, as well as being mom to a 4-year old.
+      Renita:  I transitioned to web development from a career in behavior sciences, where I mostly worked with children, gathering, analyzing, and reporting data about their progress in ABA therapy. In my free time she loves gardening, crossword puzzles, and participating in speed jigsaw-puzzle competitions, as well as being mom to a 4-year old! 
     </div>
     <div>
       <img src="https://pbs.twimg.com/media/CMn4YzSVAAAfhR2.jpg" />
@@ -21,7 +21,7 @@ I enjoy brainstorming and mapping out new application design and technologies fo
     </div>
     <div>
       <img src="https://www.lpzoo.org/wp-content/uploads/2020/07/pre66_Portrait-67.jpg" />
-      Tabi: (Tabi's Bio)
+      Tabi: Prior to full stack development, I served in the United States Marine Corps as a Cyber Intelligence Analyst. However, after much soul searching, I made a career jump to Software Development. Software development offers me an opportunity to chase my passions of problem solving, directly impacting mission, and connecting with people to provide them with the exact product they require or want. I am passionate about watching a multiple-page application come to fruition via both front-end and back-end development. Hardened network security is important to me, thus, I take pride in code validations to ensure only certain items and values are permitted. I enjoy the organization and the ability to quickly parse through big data with relational databases, like PostgreSQL. Aside from program functionality, I am enjoy crafting live pages with HTML and CSS!
     </div>
   </>
   )
