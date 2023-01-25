@@ -1,0 +1,23 @@
+video {
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+  }
+  .landing-page-main {
+   justify-content: center;
+   text-align: center;
+  }
+  .video-wrapper {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+  
+      }
+  .home-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        text-align: center;
+  }
