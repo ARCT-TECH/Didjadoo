@@ -96,7 +96,10 @@ const App = (props) => {
           path="/"
           element={<LandingPage {...props} users={users} />}
         />
-        <Route path="/usershow/:id" element={<UserShow users={users} tasks={tasks}/>} />
+        <Route
+          path="/usershow/:id"
+          element={<UserShow users={users} tasks={tasks} />}
+        />
         <Route path="/yourfriends" element={<YourFriends users={users} />} />
         <Route
           path="/protectedindex"
@@ -118,8 +121,10 @@ const App = (props) => {
         <Route
           path="/updatetask/:id"
           element={
-            <UpdateTask tasks={tasks} updateTask={updateTask} {...props} />}/>
-        <Route element={<NotFound />} />
+            <UpdateTask tasks={tasks} updateTask={updateTask} {...props} />
+          }
+        />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>
