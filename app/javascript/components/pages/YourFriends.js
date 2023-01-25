@@ -20,17 +20,14 @@ const YourFriends = ({ users }) => {
               style={{
                 width: "18rem",
               }}
+
+              key={index}
             >
               <img alt="Card" src={users?.profilepic} />
               <CardBody>
                 <CardTitle tag="h5">{users?.name}</CardTitle>
-                <CardText>Bio:{users?.bio}</CardText>
+                <CardText>{users?.bio}</CardText>
               </CardBody>
-              <ListGroup flush>
-                <ListGroupItem>Task one</ListGroupItem>
-                <ListGroupItem>Task two</ListGroupItem>
-                <ListGroupItem>Task three</ListGroupItem>
-              </ListGroup>
               <CardBody>
                 <NavLink to={`/usershow/${users?.id}`}>
                   <Button>View Profile</Button>
