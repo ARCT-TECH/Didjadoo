@@ -114,16 +114,9 @@ const App = (props) => {
         />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route
-          path="/edittask/:id"
+          path="/updatetask/:id"
           element={
-            <UpdateTask tasks={tasks} user={props.current_user} updateTask={updateTask} {...props} />
-          }
-        />
-
-        <Route
-          path="/updateuser/:id"
-          element={<UpdateUser updateUser={updateUser} {...props} />}
-        />
+            <UpdateTask tasks={tasks} updateTask={updateTask} {...props} />}/>
         <Route element={<NotFound />} />
       </Routes>
       <Footer />

@@ -3,20 +3,19 @@ import { Form, FormGroup, Label, Input, Button } from "reactstrap"
 import { useNavigate, useParams } from "react-router-dom"
 
 
-const updateTask = ({tasks, taskUpdate, current_user }) => {
-  if (!tasks || !current_user) return <div>Loading...</div>;
+const UpdateTask = ({tasks, updateTask, current_user }) => {
   const navigate = useNavigate()
   const { id } = useParams()
-  const currentTask = tasks?.find(
-    ((task) => task.id === +id)
-  ) 
+  const currentTask = tasks?.find((task) => task.id === +id);
+
+  console.log(currentTask);
 
   const [editTask, setEditTask] = useState({
     name: currentTask.name,
     priority: currentTask.priority,
     description: currentTask.description,
     deadline: currentTask.deadline,
-    progress: currentTask.progress,
+    progress: currentTask.task
   });
 
   const handleChange = (e) => {
@@ -24,8 +23,8 @@ const updateTask = ({tasks, taskUpdate, current_user }) => {
   };
 
   const handleSubmit = () => {
-    taskUpdate(editTask, currentTask.id)
-    navigate(`/protectedindex/${id}`)
+    updateTask(editTask, currentTask.id)
+    navigate("/protectedindex")
   }
  
   return (
@@ -37,9 +36,8 @@ const updateTask = ({tasks, taskUpdate, current_user }) => {
           <Input
             name="name"
             onChange={handleChange}
-            placeholder="What is the name of your task?"
             type="text"
-            value={editTask?.name}
+            value={editTask.name}
           />
         </FormGroup>
         <FormGroup>
@@ -47,9 +45,8 @@ const updateTask = ({tasks, taskUpdate, current_user }) => {
           <Input
             name="priority"
             onChange={handleChange}
-            placeholder="What is the priority?"
             type="text"
-            value={editTask?.priority}
+            value={editTask.priority}
           />
         </FormGroup>
         <FormGroup>
@@ -57,9 +54,8 @@ const updateTask = ({tasks, taskUpdate, current_user }) => {
           <Input
             name="description"
             onChange={handleChange}
-            placeholder="What is the description of the task?"
             type="text"
-            value={editTask?.description}
+            value={editTask.description}
           />
         </FormGroup>
         <FormGroup>
@@ -67,9 +63,8 @@ const updateTask = ({tasks, taskUpdate, current_user }) => {
           <Input
             name="deadline"
             onChange={handleChange}
-            placeholder="What is the task's deadline?"
-            type="text"
-            value={editTask?.deadline}
+            type="date"
+            value={editTask.deadline}
           />
         </FormGroup>
         <FormGroup>
@@ -77,9 +72,8 @@ const updateTask = ({tasks, taskUpdate, current_user }) => {
           <Input
             name="progress"
             onChange={handleChange}
-            placeholder="What is the progress stauts of the task?"
             type="text"
-            value={editTask?.progress}
+            value={editTask.progress}
           />
         </FormGroup>
         <Button onClick={handleSubmit}>Submit Task Changes</Button>
@@ -89,4 +83,4 @@ const updateTask = ({tasks, taskUpdate, current_user }) => {
       
 }
 
-export default updateTask;
+export default UpdateTask;

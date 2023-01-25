@@ -29,7 +29,9 @@ const ProtectedIndex = ({
                 <p>Description: {task.description}</p>
                 <p>Priority: {task.priority}</p>
 
-                <button>Update Task</button>
+                <button><NavLink to= {`/updatetask/${task.id}`} className="nav-link">
+             Update Task
+            </NavLink></button>
                 <button>Delete Task</button>
               </div>
             );
