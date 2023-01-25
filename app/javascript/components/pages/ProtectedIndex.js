@@ -8,6 +8,7 @@ const ProtectedIndex = ({
   createTask,
   updateTask,
   tasks,
+  deleteTask
 }) => {
   if (logged_in) {
     const myTasks = tasks?.filter((task) => task.user_id === current_user.id);
@@ -30,7 +31,7 @@ const ProtectedIndex = ({
                 <p>Priority: {task.priority}</p>
 
                 <button>Update Task</button>
-                <button>Delete Task</button>
+                <button onClick={() => {deleteTask(task.id)}}>Delete Task</button>
               </div>
             );
           })}
