@@ -124,6 +124,12 @@ const App = (props) => {
             <UpdateTask tasks={tasks} updateTask={updateTask} {...props} />
           }
         />
+         <Route
+          path="/updateuser/:id"
+          element={
+            <UpdateUser users={users} updateUser={updateUser} {...props} />
+          }
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav, NavItem } from "reactstrap";
+import { Nav, Navbar, NavItem } from "reactstrap";
 import { NavLink } from "react-router-dom";
 
 const Navigation = ({
@@ -11,6 +11,7 @@ const Navigation = ({
 }) => {
   return (
     <>
+    <Navbar>
       <Nav>
         <NavItem>
           <NavLink to="/yourfriends/" className="nav-link">
@@ -45,6 +46,7 @@ const Navigation = ({
         
         </NavItem>
       </Nav>
+      </Navbar>
     </>
   );
 };

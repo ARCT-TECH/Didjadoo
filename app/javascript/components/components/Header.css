@@ -1,0 +1,36 @@
+.logo {
+  height: 70px;
+}
+.wholeheader{
+    display: flex;
+    justify-content: space-between;
+}
+.header {
+  display: inline-flex;
+  justify-content: space-between;
+  padding: 30px;
+  width: 60%;
+}
+
+.brand {
+  font-size: 50px;
+  
+}
+a {
+    text-decoration: none;
+}
+
+
+#headerbutton {
+    background-color: rgb(117, 117, 165);
+    border-style: solid;
+    height: 30px;
+    width: 80px;
+    text-align: center;
+    margin-left: 3px;
+}
+
+.loggedout {
+    display: inline-flex;
+    flex-direction: row-reverse;
+}
