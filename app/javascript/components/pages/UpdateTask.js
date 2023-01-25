@@ -8,8 +8,6 @@ const UpdateTask = ({tasks, updateTask, current_user }) => {
   const { id } = useParams()
   const currentTask = tasks?.find((task) => task.id === +id);
 
-  console.log(currentTask);
-
   const [editTask, setEditTask] = useState({
     name: currentTask.name,
     priority: currentTask.priority,
@@ -76,9 +74,9 @@ const UpdateTask = ({tasks, updateTask, current_user }) => {
             value={editTask.progress}
           />
         </FormGroup>
-        <Button onClick={handleSubmit}>Submit Task Changes</Button>
+          <Button onClick={handleSubmit}>Submit Task Changes</Button>
         </Form>
-        </div> 
+      </div> 
         )
       
 }
