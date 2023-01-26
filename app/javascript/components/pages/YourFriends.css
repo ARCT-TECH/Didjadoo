@@ -1,11 +1,12 @@
 .container {
-  background-color: navajowhite;
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
 }
 #indeximg {
   width: 190px;
+  height: 190px;
+  object-fit: cover;
 }
 .name {
   margin: 10px;

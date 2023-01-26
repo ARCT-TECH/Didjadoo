@@ -18,9 +18,6 @@ const YourFriends = ({ users }) => {
         return (
           <div
             className="name"
-            // style={{
-            //   width: "18rem",
-            // }}
             key={index}
           >
             <NavLink to={`/usershow/${users?.id}`}>
@@ -28,7 +25,6 @@ const YourFriends = ({ users }) => {
             </NavLink>
 
             <CardTitle tag="h5">{users?.name}</CardTitle>
-            <CardText>{users?.bio}</CardText>
           </div>
         );
       })}
