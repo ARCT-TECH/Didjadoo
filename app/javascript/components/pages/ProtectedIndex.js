@@ -16,7 +16,7 @@ const ProtectedIndex = ({
     const user = users?.find((user) => user.id === current_user.id);
     return (
       <div>
-        <img className="ProfilePic" src={user.profilepic}></img>
+        <img styles={{width:20}} className="ProfilePic" src={user.profilepic}></img>
         <p>Welcome back, {user.name}</p>
         <div>{user.bio}</div>
         <NavLink to={`/updateuser/${current_user.id}`}>Edit my Profile</NavLink>
