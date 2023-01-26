@@ -16,7 +16,7 @@ const UserShow = ({
 
     return (
       <div>
-        <img className="ProfilePic" src={currentUser.profilepic}></img>
+        <img style={{width:200}} className="ProfilePic" src={currentUser.profilepic}></img>
         <p>{currentUser.name}</p>
         <div>{currentUser.bio}</div>
 
