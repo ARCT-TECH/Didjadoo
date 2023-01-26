@@ -110,6 +110,7 @@ const App = (props) => {
               tasks={tasks}
               createTask={createTask}
               updateTask={updateTask}
+              deleteTask={deleteTask}
             />
           }
         />
