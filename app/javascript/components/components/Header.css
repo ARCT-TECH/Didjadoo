@@ -4,10 +4,16 @@
 .wholeheader{
     display: flex;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 1;
+    width: 100%;
 }
-.header {
+.navigation {
   display: inline-flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 30px;
   width: 60%;
 }
@@ -33,4 +39,9 @@ a {
 .loggedout {
     display: inline-flex;
     flex-direction: row-reverse;
+}
+
+.link {
+  margin-left: 30px;
+  margin-right: 30px;
 }

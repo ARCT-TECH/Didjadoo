@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import UpdateTask from "./UpdateTask";
 
 const ProtectedIndex = ({
   logged_in,
@@ -8,13 +9,14 @@ const ProtectedIndex = ({
   createTask,
   updateTask,
   tasks,
+  deleteTask
 }) => {
   if (logged_in) {
     const myTasks = tasks?.filter((task) => task.user_id === current_user.id);
     const user = users?.find((user) => user.id === current_user.id);
     return (
       <div>
-        <img className="ProfilePic" src={user.profilepic}></img>
+        <img styles={{width:20}} className="ProfilePic" src={user.profilepic}></img>
         <p>Welcome back, {user.name}</p>
         <div>{user.bio}</div>
         <NavLink to={`/updateuser/${current_user.id}`}>Edit my Profile</NavLink>
@@ -29,10 +31,11 @@ const ProtectedIndex = ({
                 <p>Description: {task.description}</p>
                 <p>Priority: {task.priority}</p>
 
+                <button onClick={() => {deleteTask(task.id)}}>Delete Task</button>
                 <button><NavLink to= {`/updatetask/${task.id}`} className="nav-link">
              Update Task
             </NavLink></button>
-                <button>Delete Task</button>
+
               </div>
             );
           })}

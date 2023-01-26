@@ -1,0 +1,45 @@
+video {
+    object-fit: cover;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100vh;
+  }
+  .landing-page-main {
+    padding: 10px 50px ;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 25px;
+    border-color: #C2B280;
+    background-color:#b6e1e0;
+    transition: background-color 1s linear;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: 'Nunito Sans', sans-serif;
+  }
+  .landing-page-main:hover{
+    background-color: transparent;
+  }
+  .video-wrapper {
+    display: block;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+  
+      }
+  .home-buttons {
+        display: absolute;
+        flex-direction: row;
+        justify-content: center;
+        text-align: center;
+  }
+
+  .didjatest {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    bottom: 20px;
+    right: 200px;
+    float: right
+  }
