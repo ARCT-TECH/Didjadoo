@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import "./YourFriends.css";
 import {
   Card,
   CardBody,
@@ -12,29 +13,23 @@ import {
 
 const YourFriends = ({ users }) => {
   return (
-    <div>
+    <div className="container">
       {users?.map((users, index) => {
         return (
-          
-            <Card
-              style={{
-                width: "18rem",
-              }}
-
-              key={index}
-            >
+          <div
+            className="name"
+            // style={{
+            //   width: "18rem",
+            // }}
+            key={index}
+          >
+            <NavLink to={`/usershow/${users?.id}`}>
               <img alt="Card" src={users?.profilepic} />
-              <CardBody>
-                <CardTitle tag="h5">{users?.name}</CardTitle>
-                <CardText>{users?.bio}</CardText>
-              </CardBody>
-              <CardBody>
-                <NavLink to={`/usershow/${users?.id}`}>
-                  <Button>View Profile</Button>
-                </NavLink>
-              </CardBody>
-            </Card>
-          
+            </NavLink>
+
+            <CardTitle tag="h5">{users?.name}</CardTitle>
+            <CardText>{users?.bio}</CardText>
+          </div>
         );
       })}
     </div>
