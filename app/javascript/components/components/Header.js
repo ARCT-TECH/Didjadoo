@@ -20,7 +20,7 @@ const Header = ({
           Didjadoo
         </a>
       </div>
-      <div className="header">
+      <div className="navigation">
         {!logged_in && (
           <div className="loggedout">
             <div className="link" id="headerbutton">

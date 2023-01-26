@@ -11,6 +11,7 @@ import UpdateTask from "./pages/UpdateTask";
 import UserShow from "./pages/UserShow";
 import UpdateUser from "./pages/UpdateUser";
 import NotFound from "./pages/NotFound";
+import "./App.css"
 
 const App = (props) => {
   const [users, setUsers] = useState([]);
@@ -90,6 +91,7 @@ const App = (props) => {
   return (
     <BrowserRouter>
       <Header {...props} />
+      <div className="mainbody">
       <Routes>
         <Route
           exact
@@ -133,6 +135,7 @@ const App = (props) => {
         />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      </div>
       <Footer />
     </BrowserRouter>
   );
