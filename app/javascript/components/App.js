@@ -96,7 +96,10 @@ const App = (props) => {
           path="/"
           element={<LandingPage {...props} users={users} />}
         />
-        <Route path="/usershow/:id" element={<UserShow users={users} tasks={tasks}/>} />
+        <Route
+          path="/usershow/:id"
+          element={<UserShow users={users} tasks={tasks} />}
+        />
         <Route path="/yourfriends" element={<YourFriends users={users} />} />
         <Route
           path="/protectedindex"
@@ -117,17 +120,18 @@ const App = (props) => {
         />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route
-          path="/edittask/:id"
+          path="/updatetask/:id"
           element={
-            <UpdateTask users={users} updateTask={updateTask} {...props} />
+            <UpdateTask tasks={tasks} updateTask={updateTask} {...props} />
           }
         />
-
-        <Route
+         <Route
           path="/updateuser/:id"
-          element={<UpdateUser updateUser={updateUser} {...props} />}
+          element={
+            <UpdateUser users={users} updateUser={updateUser} {...props} />
+          }
         />
-        <Route element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>

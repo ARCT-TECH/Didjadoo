@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import UpdateTask from "./UpdateTask";
 
 const ProtectedIndex = ({
   logged_in,
@@ -30,8 +31,11 @@ const ProtectedIndex = ({
                 <p>Description: {task.description}</p>
                 <p>Priority: {task.priority}</p>
 
-                <button>Update Task</button>
                 <button onClick={() => {deleteTask(task.id)}}>Delete Task</button>
+                <button><NavLink to= {`/updatetask/${task.id}`} className="nav-link">
+             Update Task
+            </NavLink></button>
+
               </div>
             );
           })}
