@@ -13,8 +13,9 @@ const NotFound = () => {
           />
         </video>
         <div className="notfound">
-          Looks like you are lost at sea! Click here to join the other{" "}
-          <NavLink to="/YourFriends">Didjadooers</NavLink>
+          Looks like you are lost at sea! Click{" "}
+          <NavLink to="/YourFriends">here</NavLink> to join the other
+          Didjadooers!
         </div>
       </div>
     </div>
