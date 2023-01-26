@@ -1,0 +1,60 @@
+*{
+    color: black;
+}
+h1{
+    text-align: center;
+    margin: auto;
+
+}
+
+h2{
+    text-align: center;
+    margin: auto;
+}
+
+.image{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border-style: solid;
+        border-color: black;
+        border-width: 5px;
+        background-color: blue;
+        transition: background-color 1s linear;
+      }
+.image:hover{
+    background-color: blue
+    }
+
+.wrapper{
+    display: grid;
+
+}
+
+h3{
+    text-align: center;
+}
+
+.bios{
+    padding: 10px 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px ;
+
+
+}
+
+body{
+    background-color: #b6e1e0;
+}
+
+/* body {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRvMg8BjmOPOdqeGKLbQGJCH_AUrpIzNjcsA&usqp=CAU");
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  /* background-size: cover; */
+  /* background-size: 100%;
+
+   }  */
