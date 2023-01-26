@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import UpdateTask from "./UpdateTask";
 
 const ProtectedIndex = ({
   logged_in,
