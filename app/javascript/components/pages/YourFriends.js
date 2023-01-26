@@ -15,7 +15,7 @@ const YourFriends = ({ users }) => {
     <div>
       {users?.map((users, index) => {
         return (
-          <>
+          
             <Card
               style={{
                 width: "18rem",
@@ -34,7 +34,7 @@ const YourFriends = ({ users }) => {
                 </NavLink>
               </CardBody>
             </Card>
-          </>
+          
         );
       })}
     </div>
