@@ -31,7 +31,7 @@ const Likes = ({ task, updateTask, current_user }) => {
     updateTask(editTask, task.id);
   };
   console.log("editTask:", editTask);
-
+ 
   return (
     <>
       <span href="#" id="UncontrolledTooltipExample">
