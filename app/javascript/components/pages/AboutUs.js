@@ -1,6 +1,5 @@
 import React from "react";
-import "./AboutUs.css"
-import party from "../../../assets/images/party.png"
+
 
 
 const AboutUs = () => {

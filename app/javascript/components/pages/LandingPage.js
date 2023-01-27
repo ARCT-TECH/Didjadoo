@@ -1,12 +1,8 @@
 import React from "react";
 import { Button, UncontrolledCarousel } from "reactstrap";
 import YourFriends from "./YourFriends";
-import "./LandingPage.css";
 import didjatest from "../../../assets/images/didjatest.png";
 import UncontrolledExample from "./UncontrolledExample";
-
-
-
 
 const LandingPage = ({
   logged_in,
