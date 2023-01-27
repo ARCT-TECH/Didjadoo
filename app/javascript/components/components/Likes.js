@@ -8,7 +8,6 @@ import {
   Button,
   UncontrolledTooltip,
 } from "reactstrap";
-import "../pages/ProtectedIndex.css";
 
 const Likes = ({ task, updateTask, current_user }) => {
   const [editTask, setEditTask] = useState({ likes: task.likes });
