@@ -4,26 +4,43 @@ import { useNavigate } from "react-router-dom";
 
 const newTask = ({ createTask, current_user, modalToggle }) => {
   const navigate = useNavigate();
-  const [newTask, setnewTask] = useState({
+  const [newTask, setNewTask] = useState({
     name: "",
     priority: "",
     description: "",
-    deadline: ""
+    deadline: "",
+    private: "false",
   });
+  const handleChangePrivacy = (e) => {
+    if (newTask.private === "true") {
+      newTask.private = "false";
+      setNewTask({
+        ...newTask,
+        [e.target.private]: (e.target.value = "false"),
+      });
+      console.log(newTask);
+    } else {
+      newTask.private = "true";
+      setNewTask({
+        ...newTask,
+        [e.target.private]: (e.target.value = "true"),
+      });
+      console.log(newTask);
+    }
+  };
 
   const handleChange = (e) => {
-    setnewTask({ ...newTask, [e.target.name]: e.target.value });
+    setNewTask({ ...newTask, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = () => {
-    if (newTask.name==="" || newTask.priority==="")
-    {
-      alert ("Please enter name and priority")
-    }else{
-    createTask(newTask);
-    modalToggle()
-    navigate("/protectedindex");
-  }
+    if (newTask.name === "" || newTask.priority === "") {
+      alert("Please enter name and priority");
+    } else {
+      createTask(newTask);
+      modalToggle();
+      navigate("/protectedindex");
+    }
   };
   return (
     <div>
@@ -58,7 +75,16 @@ const newTask = ({ createTask, current_user, modalToggle }) => {
             onChange={handleChange}
             value={newTask.deadline}
           />
-           </FormGroup>
+        </FormGroup>
+        <Label check>Make Private:</Label>
+        <FormGroup switch>
+          <Input
+            type="switch"
+            name="private"
+            value={newTask.private}
+            onClick={handleChangePrivacy}
+          />
+        </FormGroup>
         <Button onClick={handleSubmit}>Submit</Button>
       </Form>
     </div>
