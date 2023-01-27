@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Progress from "../components/Progress";
 import Likes from "../components/Likes";
-import "./ProtectedIndex.css"
 import UpdateTask from "./UpdateTask";
 import NewTask from "./NewTask"
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';

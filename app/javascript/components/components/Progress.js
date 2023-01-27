@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
-import "../pages/ProtectedIndex.css"
+
 
 const Progress = ({ task, updateTask }) => {
   const navigate = useNavigate();

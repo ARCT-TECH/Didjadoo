@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useParams, NavLink } from "react-router-dom";
 import Likes from "../components/Likes";
 import Progress from "../components/Progress";
-import "./ProtectedIndex.css";
 
 const UserShow = ({ logged_in, current_user, users, tasks, updateTask}) => {
   const { id } = useParams();

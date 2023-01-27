@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 // import Navigation from "./Navigation";
 import logo from "../assets/logo.png";
-import "./Header.css";
 import { Nav, Navbar, NavbarBrand, NavItem, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import NewTask from "../pages/NewTask"
