@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { useNavigate } from "react-router-dom";
 
-const newTask = ({ createTask, current_user }) => {
+const newTask = ({ createTask, current_user, modalToggle }) => {
   const navigate = useNavigate();
   const [newTask, setnewTask] = useState({
     name: "",
@@ -21,6 +21,7 @@ const newTask = ({ createTask, current_user }) => {
       alert ("Please enter name and priority")
     }else{
     createTask(newTask);
+    modalToggle()
     navigate("/protectedindex");
   }
   };

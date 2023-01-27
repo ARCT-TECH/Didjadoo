@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 // import Navigation from "./Navigation";
 import logo from "../assets/logo.png";
 import "./Header.css";
-import { Nav, Navbar, NavbarBrand, NavItem } from "reactstrap";
+import { Nav, Navbar, NavbarBrand, NavItem, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { NavLink } from "react-router-dom";
+import NewTask from "../pages/NewTask"
 
 const Header = ({
   logged_in,
@@ -11,7 +12,10 @@ const Header = ({
   new_user_route,
   sign_in_route,
   sign_out_route,
+  createTask
 }) => {
+  const [modal, setModal] = useState(false);
+  const modalToggle = () => setModal(!modal);
   return (
     <div className="wholeheader">
       <div className="brand">
@@ -51,9 +55,19 @@ const Header = ({
             </div>
 
             <div className="link">
-              <NavLink to="/NewTask" className="nav-link">
-                New Task
-              </NavLink>
+            <button onClick={modalToggle}>New Task</button>
+                <Modal isOpen={modal} modalToggle={modalToggle} {...createTask}>
+                  <ModalHeader modalToggle={modalToggle}>Add Task</ModalHeader>
+                  <ModalBody>
+                    <NewTask
+                      modalToggle={modalToggle}
+                      createTask={createTask}
+                    />
+                  </ModalBody>
+                  <ModalFooter>
+                    <button onClick={modalToggle}>Close</button>
+                  </ModalFooter>
+                </Modal>
             </div>
 
             <div className="link" id="headerbutton">
