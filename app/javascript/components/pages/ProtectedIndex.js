@@ -4,7 +4,8 @@ import Progress from "../components/Progress";
 import Likes from "../components/Likes";
 import "./ProtectedIndex.css"
 import UpdateTask from "./UpdateTask";
-import { Collapse, Button, CardBody, Card } from 'reactstrap';
+import NewTask from "./NewTask"
+import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const ProtectedIndex = ({
   logged_in,
@@ -20,7 +21,8 @@ const ProtectedIndex = ({
     const user = users?.find((user) => user.id === current_user.id);
 
     const [toggle, setToggle] = useState({});
-
+    const [modal, setModal] = useState(false);
+    const modalToggle = () => setModal(!modal);
     function toggleFunction(id) {
       setToggle({
         ...toggle,
@@ -43,9 +45,18 @@ const ProtectedIndex = ({
             <NavLink to={`/updateuser/${current_user.id}`}>Edit my Profile</NavLink>
             </div>
         <div className="task-column">
-        <p>
-          <NavLink to="/NewTask">New Task</NavLink>
-        </p>
+        <div>
+          <button onClick={modalToggle}>New Task</button>
+          <Modal isOpen={modal} modalToggle={modalToggle} {...createTask}>
+                <ModalHeader modalToggle={modalToggle}>Add Task</ModalHeader>
+                <ModalBody>
+                  <NewTask modalToggle={modalToggle} createTask={createTask}/>
+                </ModalBody>
+                <ModalFooter>
+                  <button onClick={modalToggle}>Close</button>
+                </ModalFooter>
+              </Modal>
+        </div>
         {myTasks
           ?.sort((a, b) => b.priority - a.priority)
           .map((task, index) => {
