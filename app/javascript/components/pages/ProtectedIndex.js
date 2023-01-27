@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import Progress from "../components/Progress";
+import Likes from "../components/Likes";
+import "./ProtectedIndex.css"
 import UpdateTask from "./UpdateTask";
+import { Collapse, Button, CardBody, Card } from 'reactstrap';
 
 const ProtectedIndex = ({
   logged_in,
@@ -9,36 +13,93 @@ const ProtectedIndex = ({
   createTask,
   updateTask,
   tasks,
-  deleteTask
-}) => {
+  deleteTask,
+}, args) => {
   if (logged_in) {
     const myTasks = tasks?.filter((task) => task.user_id === current_user.id);
     const user = users?.find((user) => user.id === current_user.id);
+
+    const [toggle, setToggle] = useState({});
+
+    function toggleFunction(id) {
+      setToggle({
+        ...toggle,
+        [id]: !toggle[id],
+      });
+    }
+
     return (
-      <div>
-        <img styles={{width:20}} className="ProfilePic" src={user.profilepic}></img>
-        <p>Welcome back, {user.name}</p>
-        <div>{user.bio}</div>
-        <NavLink to={`/updateuser/${current_user.id}`}>Edit my Profile</NavLink>
+      <div className="profile-body">
+          <div className="profile-info">
+            <img
+              
+              className="profile-pic"
+              src={user.profilepic}
+            ></img>
+            <p>Welcome back, {user.name}!</p>
+            <div>
+              <p>About Me:</p>
+              <p>{user.bio}</p></div>
+            <NavLink to={`/updateuser/${current_user.id}`}>Edit my Profile</NavLink>
+            </div>
+        <div className="task-column">
         <p>
           <NavLink to="/NewTask">New Task</NavLink>
         </p>
-        {current_user &&
-          myTasks.map((task, index) => {
+        {myTasks
+          ?.sort((a, b) => b.priority - a.priority)
+          .map((task, index) => {
+            let priority = "🔵";
+            if (task.priority === "3") {
+              priority = "🔴";
+            } else if (task.priority === "2") {
+              priority = "🟡";
+            } else if (task.priority === "1") {
+              priority = "🟢";
+            } else {
+              priority = "😑";
+            }
+
+            let progress = "🔵";
+            if (task.progress === "3") {
+              progress = "☑️";
+            } else if (task.progress === "2") {
+              progress = "▶️";
+            } else if (task.progress === "1") {
+              progress = "⏹";
+            } else {
+              progress = "⏹";
+            }
             return (
               <div key={index}>
-                <p>Name: {task.name}</p>
-                <p>Description: {task.description}</p>
-                <p>Priority: {task.priority}</p>
-
-                <button onClick={() => {deleteTask(task.id)}}>Delete Task</button>
-                <button><NavLink to= {`/updatetask/${task.id}`} className="nav-link">
-             Update Task
-            </NavLink></button>
-
+                {priority}
+                {progress}
+                  <button className="task-button" onClick={()=>toggleFunction(task.id)}><strong>{task.name}</strong></button>
+                <Likes
+                  task={task}
+                  updateTask={updateTask}
+                  current_user={current_user}
+                  users={users}
+                /> <span style={{ display: toggle[task.id] ? 'block' : 'none' }}>
+                <p>{task.description}</p>
+                <Progress task={task} updateTask={updateTask} />
+                <button
+                  onClick={() => {
+                    deleteTask(task.id);
+                  }}
+                >
+                  🗑
+                </button>
+                <button>
+                  <NavLink to={`/updatetask/${task.id}`} className="nav-link">
+                    ✍️
+                  </NavLink>
+                </button>
+                </span>
               </div>
             );
           })}
+          </div>
       </div>
     );
   } else {

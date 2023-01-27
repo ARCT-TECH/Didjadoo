@@ -100,7 +100,7 @@ const App = (props) => {
         />
         <Route
           path="/usershow/:id"
-          element={<UserShow users={users} tasks={tasks} />}
+          element={<UserShow users={users} tasks={tasks} updateTask={updateTask} {...props}/>}
         />
         <Route path="/yourfriends" element={<YourFriends users={users} />} />
         <Route
