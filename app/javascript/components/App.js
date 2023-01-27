@@ -27,7 +27,7 @@ const App = (props) => {
       .catch((error) => console.log(error));
   };
   const updateUser = (user, id) => {
-    fetch(`http://localhost:3000/users/${id}`, {
+    fetch(`${DATABASE_URL}/users/${id}`, {
       body: JSON.stringify(user),
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +52,7 @@ const App = (props) => {
 
   const createTask = (task) => {
     console.log(task);
-    fetch("http://localhost:3000/tasks", {
+    fetch(`${DATABASE_URL}/tasks`, {
       body: JSON.stringify(task),
       headers: {
         "Content-Type": "application/json",
@@ -65,7 +65,7 @@ const App = (props) => {
   };
 
   const updateTask = (task, id) => {
-    fetch(`http://localhost:3000/tasks/${id}`, {
+    fetch(`${DATABASE_URL}/tasks/${id}`, {
       body: JSON.stringify(task),
       headers: {
         "Content-Type": "application/json",
@@ -78,7 +78,7 @@ const App = (props) => {
   };
 
   const deleteTask = (id) => {
-    fetch(`http://localhost:3000/tasks/${id}`, {
+    fetch(`${DATABASE_URL}/tasks/${id}`, {
       headers: {
         "Content-Type": "application/json",
       },
