@@ -90,7 +90,7 @@ const App = (props) => {
   };
   return (
     <BrowserRouter>
-      <Header {...props} />
+      <Header createTask={createTask}{...props} />
       <div className="mainbody">
       <Routes>
         <Route
