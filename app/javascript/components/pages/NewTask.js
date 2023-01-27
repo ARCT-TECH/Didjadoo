@@ -54,13 +54,21 @@ const newTask = ({ createTask, current_user, modalToggle }) => {
             onChange={handleChange}
             value={newTask.name}
           />
-          <Label for="priority">Priority</Label>
-          <Input
-            type="text"
-            name="priority"
-            onChange={handleChange}
-            value={newTask.priority}
-          />
+          <FormGroup>
+            <Label for="Priority">Select</Label>
+            <Input
+              id="priority"
+              name="priority"
+              type="select"
+              value={newTask.value}
+              onChange={handleChange}
+            >
+              <option>Choose priority:</option>
+              <option value="3">🔴 High Priority - get it done ASAP!</option>
+              <option value="2">🟡 Medium Priority - get it done soon.</option>
+              <option value="1">🟢 Low priority - when you have time.</option>
+            </Input>
+          </FormGroup>
           <Label for="description">Description</Label>
           <Input
             type="text"
