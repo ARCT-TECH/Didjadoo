@@ -116,5 +116,13 @@ task_seeds = [
 
 task_seeds.each do |task|
   user.tasks.create(task)
+  user2.tasks.create(task)
+  user3.tasks.create(task)
+  user4.tasks.create(task)
+  user5.tasks.create(task)
+  user6.tasks.create(task)
+  user7.tasks.create(task)
+  user8.tasks.create(task)
+  user9.tasks.create(task)
   p "creating: #{task}"
 end
