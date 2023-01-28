@@ -14,9 +14,10 @@ video {
     background-color:#b6e1e0;
     transition: background-color 1s linear;
     position: absolute;
-    top: 20px;
+    top: 100px;
     right: 20px;
     font-family: 'Nunito Sans', sans-serif;
+    display: block;
   }
   .landing-page-main:hover{
     background-color: transparent;
@@ -44,4 +45,13 @@ video {
     float: right
   }
 
-
+.img {
+  height: 800px;
+  width: 800px;
+  justify-content: center;
+  margin: 0 auto;
+  position: static;
+  border: 3px solid;
+  border-color: black;
+  border-radius: 25px;
+}
