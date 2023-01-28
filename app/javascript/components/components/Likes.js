@@ -23,7 +23,7 @@ const Likes = ({ task, updateTask, current_user }) => {
 
   return (
     <>
-      <button className="task-button" onClick={onClick} name="update">
+      <button className="likes-task-button" onClick={onClick} name="update">
         ❤️
       </button>
       <span href="#" id={`btn-${task.id}`}>
