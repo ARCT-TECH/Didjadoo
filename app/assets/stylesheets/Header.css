@@ -7,7 +7,7 @@
     position: sticky;
     top: 0;
     left: 0;
-    background-color: white;
+    background-color: lightseagreen;
     z-index: 1;
     width: 100%;
 }
@@ -18,23 +18,26 @@
   width: 60%;
 }
 
-.brand {
+.header-brand {
   font-size: 50px;
-  
+  font-family: 'Comfortaa', cursive;
+  text-decoration: none;
+  color: white;
+  line-height: 1.65;
 }
 a {
     text-decoration: none;
 }
 
 
-#headerbutton {
+/* #headerbutton {
     background-color: rgb(117, 117, 165);
     border-style: solid;
     height: 30px;
     width: 80px;
     text-align: center;
     margin-left: 3px;
-}
+} */
 
 .loggedout {
     display: inline-flex;

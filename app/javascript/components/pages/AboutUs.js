@@ -36,7 +36,7 @@ const AboutUs = () => {
             I transitioned to web development from a career in behavior
             sciences, where I mostly worked with children, gathering, analyzing,
             and reporting data about their progress in ABA therapy. In my free
-            time she loves gardening, crossword puzzles, and participating in
+            time I love gardening, crossword puzzles, and participating in
             speed jigsaw-puzzle competitions, as well as being mom to a 4-year
             old!
           </p>
