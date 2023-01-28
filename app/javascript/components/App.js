@@ -11,7 +11,7 @@ import UpdateTask from "./pages/UpdateTask";
 import UserShow from "./pages/UserShow";
 import UpdateUser from "./pages/UpdateUser";
 import NotFound from "./pages/NotFound";
-import "./App.css"
+
 
 const App = (props) => {
   const [users, setUsers] = useState([]);

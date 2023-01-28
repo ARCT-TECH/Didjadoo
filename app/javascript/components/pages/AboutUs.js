@@ -1,10 +1,11 @@
 import React from "react";
-import "./AboutUs.css";
+
 
 
 const AboutUs = () => {
   return (
     <>
+    <div className="about-us-color">
       <h1>ARCT-TECH</h1>
       <h2>A team of Didja-dooers, here to help you achieve your goals!</h2>
       <div className="wrapper">
@@ -86,6 +87,7 @@ const AboutUs = () => {
             functionality, I am enjoy crafting live pages with HTML and CSS!
           </p>
         </div>
+      </div>
       </div>
     </>
   );
