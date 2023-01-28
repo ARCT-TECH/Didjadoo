@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useParams, NavLink } from "react-router-dom";
-import Likes from "../components/Likes";
-import Progress from "../components/Progress";
+import Likes from "../components/Likes"
 
 const UserShow = ({ logged_in, current_user, users, tasks, updateTask}) => {
   const { id } = useParams();
   const user = users?.find((user) => user.id === +id);
   const userTasks = tasks?.filter((task) => task.user_id === +id);
+  const publicTasks = userTasks.filter((task)=>task.private==="false")
   const [toggle, setToggle] = useState({});
-
+console.log("Public Tasks:",userTasks)
   function toggleFunction(id) {
     setToggle({
       ...toggle,
@@ -28,7 +28,7 @@ const UserShow = ({ logged_in, current_user, users, tasks, updateTask}) => {
       </div>
       <div className="task-column">
         My Tasks:
-        {userTasks
+        {publicTasks
           ?.sort((a, b) => b.priority - a.priority)
           .map((task, index) => {
             let priority = "🔵";
@@ -39,7 +39,7 @@ const UserShow = ({ logged_in, current_user, users, tasks, updateTask}) => {
             } else if (task.priority === "1") {
               priority = "🟢";
             } else {
-              priority = "😑";
+              priority = "🟢";
             }
 
             let progress = "🔵";
