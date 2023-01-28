@@ -51,7 +51,6 @@ const App = (props) => {
   };
 
   const createTask = (task) => {
-    console.log(task);
     fetch(`/tasks`, {
       body: JSON.stringify(task),
       headers: {

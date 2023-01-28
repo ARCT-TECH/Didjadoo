@@ -8,7 +8,6 @@ const UserShow = ({ logged_in, current_user, users, tasks, updateTask}) => {
   const userTasks = tasks?.filter((task) => task.user_id === +id);
   const publicTasks = userTasks.filter((task)=>task.private==="false")
   const [toggle, setToggle] = useState({});
-console.log("Public Tasks:",userTasks)
   function toggleFunction(id) {
     setToggle({
       ...toggle,

@@ -14,7 +14,6 @@ const Progress = ({ task, updateTask }) => {
     updateTask(editTask, task.id);
     navigate("/protectedindex");
   };
-  console.log("editTask:", editTask);
 
   return (
     <>

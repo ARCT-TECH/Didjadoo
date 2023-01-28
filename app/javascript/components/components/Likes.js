@@ -3,7 +3,6 @@ import { UncontrolledTooltip } from "reactstrap";
 
 const Likes = ({ task, updateTask, current_user }) => {
   const [editTask, setEditTask] = useState({ likes: task.likes });
-  console.log("Likes component receiving current user:", current_user);
   const onClick = () => {
     let idArray = task.likes;
     if (task.likes.includes(current_user.name) === false) {
@@ -21,7 +20,6 @@ const Likes = ({ task, updateTask, current_user }) => {
   const handleSubmit = () => {
     updateTask(editTask, task.id);
   };
-  console.log("editTask:", editTask);
 
   return (
     <>
