@@ -17,9 +17,6 @@ const YourFriends = ({ users }) => {
         return (
           <div
             className="name"
-            // style={{
-            //   width: "18rem",
-            // }}
             key={index}
           >
             <NavLink to={`/usershow/${users?.id}`}>

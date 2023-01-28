@@ -18,7 +18,7 @@ const Header = ({
   return (
     <div className="wholeheader">
       <div className="brand">
-        <a href="/">
+        <a className="header-brand" href="/">
           <img className="logo" src={logo} alt="logo" />
           Didjadoo
         </a>

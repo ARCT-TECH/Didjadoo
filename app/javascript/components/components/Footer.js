@@ -4,10 +4,9 @@ import { BrowserRouter, NavLink } from "react-router-dom";
 const Footer = (props) => {
   return (
     <>
-      <div className="footer">
-        © 2023 ||
-        <NavLink to="/AboutUs"> ARCT-TECH</NavLink>
-      </div>
+      <span className="footer">
+        <NavLink to="/AboutUs" className="nav-link">© 2023 || About ARCT-TECH</NavLink>
+      </span>
     </>
   );
 };
