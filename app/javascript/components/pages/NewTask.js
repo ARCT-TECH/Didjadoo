@@ -18,14 +18,12 @@ const newTask = ({ createTask, current_user, modalToggle }) => {
         ...newTask,
         [e.target.private]: (e.target.value = "false"),
       });
-      console.log(newTask);
     } else {
       newTask.private = "true";
       setNewTask({
         ...newTask,
         [e.target.private]: (e.target.value = "true"),
       });
-      console.log(newTask);
     }
   };
 

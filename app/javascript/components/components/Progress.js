@@ -12,12 +12,13 @@ const Progress = ({ task, updateTask }) => {
   };
   const handleSubmit = () => {
     updateTask(editTask, task.id);
+    navigate("/protectedindex");
   };
-  console.log("editTask:", editTask);
 
   return (
     <>
       <Form className="update-form">
+      <FormGroup>
           <Input
             id="progress"
             name="progress"
@@ -32,9 +33,10 @@ const Progress = ({ task, updateTask }) => {
             <option value="2">▶️ In progress</option>
             <option value="1">⏹ Not started</option>
           </Input>
-        <button className="task-button" onClick={handleSubmit} name="update">
+          </FormGroup>
+        <Button cssModule={{ btn: 'task-button-btn' }} onClick={handleSubmit} name="update">
         ➡️
-        </button>
+        </Button>
       </Form>
     </>
   );

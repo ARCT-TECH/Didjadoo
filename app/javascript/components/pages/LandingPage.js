@@ -12,11 +12,6 @@ const LandingPage = ({
   sign_out_route,
   users,
 }) => {
-  console.log("Logged In:", logged_in);
-  console.log("Current User:", current_user);
-  console.log("New User: ", new_user_route);
-  console.log("Sign In", sign_in_route);
-  console.log("Sign Out:", sign_out_route);
   return (
     <>
       {!logged_in && (
