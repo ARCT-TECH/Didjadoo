@@ -1,17 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import {
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  Button,
-  UncontrolledTooltip,
-} from "reactstrap";
+import { UncontrolledTooltip } from "reactstrap";
 
 const Likes = ({ task, updateTask, current_user }) => {
   const [editTask, setEditTask] = useState({ likes: task.likes });
-    console.log("Likes component receiving current user:", current_user)
+  console.log("Likes component receiving current user:", current_user);
   const onClick = () => {
     let idArray = task.likes;
     if (task.likes.includes(current_user.name) === false) {
@@ -30,22 +22,22 @@ const Likes = ({ task, updateTask, current_user }) => {
     updateTask(editTask, task.id);
   };
   console.log("editTask:", editTask);
- 
+
   return (
     <>
-      <span href="#" id="UncontrolledTooltipExample">
-        <button className="task-button" onClick={onClick} name="update">
-          ❤️
-        </button>
+      <button className="task-button" onClick={onClick} name="update">
+        ❤️
+      </button>
+      <span href="#" id={`btn-${task.id}`}>
+        {task.likes.length}
       </span>
-      {task.likes.length}
-      <UncontrolledTooltip
-        placement="right"
-        target="UncontrolledTooltipExample"
-      >
-        Liked by:{" "}
-        {task.likes.map((name, index) => (
-          <p key={index}>{name}</p>
+
+      <UncontrolledTooltip placement="right" target={`btn-${task.id}`}>
+        Liked by: &nbsp;
+        {task.likes.map((user, index) => (
+          <span style={{ color: "white" }}>
+            {(index ? ", " : "") + user}
+          </span>
         ))}
       </UncontrolledTooltip>
     </>
