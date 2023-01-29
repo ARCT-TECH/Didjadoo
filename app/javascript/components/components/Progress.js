@@ -14,7 +14,6 @@ import { faSquareCheck } from "@fortawesome/free-regular-svg-icons";
 import { faPersonRunning } from "@fortawesome/free-solid-svg-icons";
 
 const Progress = ({ task, updateTask }) => {
-  console.log("Initially received task in Progress:", task)
   const navigate = useNavigate();
   const [editTask, setEditTask] = useState({ progress: task.progress });
   const [toggle, setToggle] = useState({});
@@ -26,7 +25,6 @@ const Progress = ({ task, updateTask }) => {
   }
   const handleChange = (e) => {
     setEditTask({ ...editTask, progress: e.target.value });
-    // handleSubmit()
   };
   const handleSubmit = () => {
     updateTask(editTask, task.id);

@@ -78,7 +78,6 @@ const ProtectedIndex = (
               } else {
                 priority = "🟢";
               }
-                console.log("Task from map on protected index:", task.name)
               return (
                 <div key={index} className="task-row">
                   <div className="task-obj-no-like">
