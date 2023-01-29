@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Progress from "../components/Progress";
 import Likes from "../components/Likes";
-import UpdateTask from "./UpdateTask";
 import NewTask from "./NewTask";
-import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-  import { faSquare } from '@fortawesome/free-regular-svg-icons'
-  import { faSquareCheck } from '@fortawesome/free-regular-svg-icons'
-  import { faPersonRunning } from '@fortawesome/free-solid-svg-icons'
+import {
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "reactstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 const ProtectedIndex = (
   { logged_in, current_user, users, createTask, updateTask, tasks, deleteTask },
@@ -17,10 +20,7 @@ const ProtectedIndex = (
   if (logged_in) {
     const myTasks = tasks?.filter((task) => task.user_id === current_user.id);
     const user = users?.find((user) => user.id === current_user.id);
-
     const [toggle, setToggle] = useState({});
-    const [modal, setModal] = useState(false);
-    const modalToggle = () => setModal(!modal);
     function toggleFunction(id) {
       setToggle({
         ...toggle,
@@ -28,18 +28,22 @@ const ProtectedIndex = (
       });
     }
 
+    const [modal, setModal] = useState(false);
+    const modalToggle = () => setModal(!modal);
+
+
     return (
       <div className="profile-body">
         <div className="profile-info">
           <img className="profile-pic" src={user.profilepic}></img>
-          <p>Welcome back, {user.name}!</p>
+          <p>Welcome back, {user.name}!</p>{" "}
+          <NavLink to={`/updateuser/${current_user.id}`}>
+            <FontAwesomeIcon icon={faPenToSquare} />
+          </NavLink>
           <div>
             <p>About Me:</p>
             <p>{user.bio}</p>
           </div>
-          <NavLink to={`/updateuser/${current_user.id}`}>
-            Edit my Profile
-          </NavLink>
         </div>
         <div className="task-column">
           <div>
@@ -57,6 +61,13 @@ const ProtectedIndex = (
           {myTasks
             ?.sort((a, b) => b.priority - a.priority)
             .map((task, index) => {
+              let privacy = "";
+              if (task.private === "false") {
+                privacy = "";
+              } else {
+                privacy = "(private)";
+              }
+
               let priority = "🔵";
               if (task.priority === "3") {
                 priority = "🔴";
@@ -65,66 +76,63 @@ const ProtectedIndex = (
               } else if (task.priority === "1") {
                 priority = "🟢";
               } else {
-                priority = "😑";
+                priority = "🟢";
               }
-
-              let progress = "🔵";
-              if (task.progress === "3") {
-                progress = <FontAwesomeIcon icon={faSquareCheck} />;
-              } else if (task.progress === "2") {
-                progress = <FontAwesomeIcon icon={faPersonRunning} />;
-              } else if (task.progress === "1") {
-                progress = <FontAwesomeIcon icon={faSquare} />;
-              } else {
-                progress = <FontAwesomeIcon icon={faSquareCheck} />;
-              }
+                console.log("Task from map on protected index:", task.name)
               return (
-                <div key={index}>
-                  <div className="task-row">
-                  <span className="task-obj-no-like">
-                    <div className="progress-title">
-                  
-                  <button
-                    className="task-button"
-                    onClick={() => toggleFunction(task.id)}
-                  ><strong>{progress}{"  "}
-                    {task.name}</strong>
-                  </button>
+                <div key={index} className="task-row">
+                  <div className="task-obj-no-like">
+                    <div id="progress-title" className="progress-title">
+                      <Progress task={task} updateTask={updateTask}/>
+                      <button
+                        className="task-button"
+                        onClick={() => toggleFunction(task.id)}
+                      >
+                        <strong>
+                          {"  "}
+                          {task.name} {privacy}
+                        </strong>
+                      </button>
+                    </div>
+                    <div className="priority">{priority}</div>
+                    <div
+                      className="extra-info"
+                      style={{ display: toggle[task.id] ? "block" : "none" }}
+                    >
+                      <div>{task.description}</div>
+                      {task.deadline && <div>Deadline:{" "}{task.deadline}</div>}
+
+                      <button
+                        className="task-button-btn"
+                        onClick={() => {
+                          var result = window.confirm(
+                            "Are you sure you want to delete this task? Once deleted, it cannot be recovered."
+                          );
+                          if (result) {
+                            deleteTask(task.id);
+                          }
+                        }}
+                      >
+                        <FontAwesomeIcon icon={faTrashCan} />
+                      </button>
+                      <button className="task-button-btn">
+                        <NavLink
+                          to={`/updatetask/${task.id}`}
+                          className="nav-link"
+                        >
+                          <FontAwesomeIcon icon={faPenToSquare} />
+                        </NavLink>
+                      </button>
+                    </div>
                   </div>
-                  {priority}
-                  </span>
+                  <div className="likes">
                   <Likes
                     task={task}
                     updateTask={updateTask}
                     current_user={current_user}
                     users={users}
                   />
-                  
                   </div>
-                  <span style={{ display: toggle[task.id] ? "block" : "none" }}>
-                    <p>{task.description}</p>
-                    <Progress task={task} updateTask={updateTask} />
-                    <button
-                      onClick={() => {
-                        var result = window.confirm(
-                          "Are you sure you want to delete this task? Once deleted, it cannot be recovered."
-                        );
-                        if (result) {
-                          deleteTask(task.id);
-                        }
-                      }}
-                    >
-                      🗑
-                    </button>
-                    <button>
-                      <NavLink
-                        to={`/updatetask/${task.id}`}
-                        className="nav-link"
-                      >
-                        ✍️
-                      </NavLink>
-                    </button>
-                  </span>
                 </div>
               );
             })}

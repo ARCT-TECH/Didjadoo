@@ -23,17 +23,18 @@ const Likes = ({ task, updateTask, current_user }) => {
 
   return (
     <>
-      <button className="likes-task-button" onClick={onClick} name="update">
-        ❤️
-      </button>
       <span href="#" id={`btn-${task.id}`}>
+        <button className="likes-task-button" onClick={onClick} name="update">
+          ❤️
+        </button>
+
         {task.likes.length}
       </span>
 
       <UncontrolledTooltip placement="right" target={`btn-${task.id}`}>
         Liked by: &nbsp;
         {task.likes.map((user, index) => (
-          <span style={{ color: "white" }}>
+          <span key={index} style={{ color: "white" }}>
             {(index ? ", " : "") + user}
           </span>
         ))}

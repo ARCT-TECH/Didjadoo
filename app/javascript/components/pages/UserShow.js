@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { useParams, NavLink } from "react-router-dom";
-import Likes from "../components/Likes"
+import Likes from "../components/Likes";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquare } from "@fortawesome/free-regular-svg-icons";
+import { faSquareCheck } from "@fortawesome/free-regular-svg-icons";
+import { faPersonRunning } from "@fortawesome/free-solid-svg-icons";
 
-const UserShow = ({ logged_in, current_user, users, tasks, updateTask}) => {
+const UserShow = ({ logged_in, current_user, users, tasks, updateTask }) => {
   const { id } = useParams();
   const user = users?.find((user) => user.id === +id);
   const userTasks = tasks?.filter((task) => task.user_id === +id);
-  const publicTasks = userTasks.filter((task)=>task.private==="false")
+  const publicTasks = userTasks.filter((task) => task.private === "false");
   const [toggle, setToggle] = useState({});
   function toggleFunction(id) {
     setToggle({
@@ -23,7 +27,6 @@ const UserShow = ({ logged_in, current_user, users, tasks, updateTask}) => {
           <p>About Me:</p>
           <p>{user.bio}</p>
         </div>
-
       </div>
       <div className="task-column">
         My Tasks:
@@ -43,33 +46,46 @@ const UserShow = ({ logged_in, current_user, users, tasks, updateTask}) => {
 
             let progress = "🔵";
             if (task.progress === "3") {
-              progress = "☑️";
+              progress = <FontAwesomeIcon icon={faSquareCheck} />;
             } else if (task.progress === "2") {
-              progress = "▶️";
+              progress = <FontAwesomeIcon icon={faPersonRunning} />;
             } else if (task.progress === "1") {
-              progress = "⏹";
+              progress = <FontAwesomeIcon icon={faSquare} />;
             } else {
-              progress = "⏹";
+              progress = <FontAwesomeIcon icon={faSquare} />;
             }
             return (
-              <div key={index}>
-                {priority}
-                {progress}
-                <button
-                  className="task-button"
-                  onClick={() => toggleFunction(task.id)}
-                >
-                  <strong>{task.name}</strong>
-                </button>
-                <Likes
-                  task={task}
-                  updateTask={updateTask}
-                  current_user={current_user}
-                  users={users}
-                />
-                <span style={{ display: toggle[task.id] ? "block" : "none" }}>
-                  <p>{task.description}</p>
-                </span>
+              <div key={index} className="task-row">
+                <div className="task-obj-no-like">
+                  <div id="progress-title" className="progress-title">
+                    <button
+                      className="task-button"
+                      onClick={() => toggleFunction(task.id)}
+                    >
+                      <strong>
+                        {progress}
+                        {"  "}
+                        {task.name}
+                      </strong>
+                    </button>
+                  </div>
+                  <div className="priority">{priority}</div>
+                  <div
+                    className="extra-info"
+                    style={{ display: toggle[task.id] ? "block" : "none" }}
+                  >
+                    <div>{task.description}</div>
+                    {task.deadline && <div>Deadline: {task.deadline}</div>}
+                  </div>
+                </div>
+                <div className="likes">
+                  <Likes
+                    task={task}
+                    updateTask={updateTask}
+                    current_user={current_user}
+                    users={users}
+                  />
+                </div>
               </div>
             );
           })}
