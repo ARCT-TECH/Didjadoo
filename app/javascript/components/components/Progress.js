@@ -34,7 +34,7 @@ const Progress = ({ task, updateTask }) => {
   };
 
   return (
-    <>
+    <div className="progress-body">
       <Button
         cssModule={{ btn: 'task-button-btn' }}
         onClick={() => toggleFunction(task.id)}
@@ -44,7 +44,7 @@ const Progress = ({ task, updateTask }) => {
         {(task.progress==="1") &&<FontAwesomeIcon icon={faSquare} />}
         {(!task.progress) &&<FontAwesomeIcon icon={faSquare} />}
       </Button>
-      <div className="progress-form" style={{ display: toggle[task.id] ? "block" : "none"  }}>
+      <div className="progress-form" style={{ visibility: toggle[task.id] ? "visible" : "hidden"  }}>
         <Form className="update-form">
           <FormGroup>
             <Input
@@ -66,7 +66,7 @@ const Progress = ({ task, updateTask }) => {
         </Button>
         </Form>
       </div>
-    </>
+    </div>
   );
 };
 

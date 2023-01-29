@@ -77,7 +77,11 @@
 
 .progress-form {
     z-index:2; 
-    position:relative;
+    position:absolute;
+}
+
+.progress-body {
+    position: relative;
 }
 
 .priority {
