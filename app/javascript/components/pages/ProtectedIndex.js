@@ -10,7 +10,7 @@ import {
   ModalFooter,
 } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLock, faPenToSquare, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+import { faLock, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 const ProtectedIndex = (
