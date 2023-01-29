@@ -10,7 +10,7 @@ import {
   ModalFooter,
 } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { faLock, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 const ProtectedIndex = (
@@ -63,7 +63,7 @@ const ProtectedIndex = (
             .map((task, index) => {
               let privacy = "";
               if (task.private === "false") {
-                privacy = "";
+                privacy = <FontAwesomeIcon icon={faLock}/>;
               } else {
                 privacy = "(private)";
               }
@@ -90,7 +90,7 @@ const ProtectedIndex = (
                       >
                         <strong>
                           {"  "}
-                          {task.name} {privacy}
+                          {task.name}{"  "}{privacy}
                         </strong>
                       </button>
                     </div>
