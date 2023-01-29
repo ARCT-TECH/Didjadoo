@@ -63,9 +63,9 @@ const ProtectedIndex = (
             .map((task, index) => {
               let privacy = "";
               if (task.private === "false") {
-                privacy = <FontAwesomeIcon icon={faLock}/>;
+                privacy = "";
               } else {
-                privacy = "(private)";
+                privacy = <FontAwesomeIcon icon={faLock}/>;
               }
 
               let priority = "🔵";
