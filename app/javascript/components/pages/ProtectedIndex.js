@@ -5,6 +5,10 @@ import Likes from "../components/Likes";
 import UpdateTask from "./UpdateTask";
 import NewTask from "./NewTask";
 import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+  import { faSquare } from '@fortawesome/free-regular-svg-icons'
+  import { faSquareCheck } from '@fortawesome/free-regular-svg-icons'
+  import { faPersonRunning } from '@fortawesome/free-solid-svg-icons'
 
 const ProtectedIndex = (
   { logged_in, current_user, users, createTask, updateTask, tasks, deleteTask },
@@ -66,30 +70,37 @@ const ProtectedIndex = (
 
               let progress = "🔵";
               if (task.progress === "3") {
-                progress = "☑️";
+                progress = <FontAwesomeIcon icon={faSquareCheck} />;
               } else if (task.progress === "2") {
-                progress = "▶️";
+                progress = <FontAwesomeIcon icon={faPersonRunning} />;
               } else if (task.progress === "1") {
-                progress = "⏹";
+                progress = <FontAwesomeIcon icon={faSquare} />;
               } else {
-                progress = "⏹";
+                progress = <FontAwesomeIcon icon={faSquareCheck} />;
               }
               return (
                 <div key={index}>
-                  {priority}
-                  {progress}
+                  <div className="task-row">
+                  <span className="task-obj-no-like">
+                    <div className="progress-title">
+                  
                   <button
                     className="task-button"
                     onClick={() => toggleFunction(task.id)}
-                  >
-                    <strong>{task.name}</strong>
+                  ><strong>{progress}{"  "}
+                    {task.name}</strong>
                   </button>
+                  </div>
+                  {priority}
+                  </span>
                   <Likes
                     task={task}
                     updateTask={updateTask}
                     current_user={current_user}
                     users={users}
                   />
+                  
+                  </div>
                   <span style={{ display: toggle[task.id] ? "block" : "none" }}>
                     <p>{task.description}</p>
                     <Progress task={task} updateTask={updateTask} />

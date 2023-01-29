@@ -33,11 +33,37 @@
 
 .task-button {
     border-style: none;
-    background-color: none;
+    background-color: rgb(196, 235, 232);
 }
 
-.task-button-btn {
+.likes-task-button {
     border-style: none;
     background-color: none;
 }
 
+.task-obj-no-like {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    background-color: rgb(196, 235, 232);
+    padding: 5px;
+    border-radius: 2rem;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightseagreen;
+    margin: 3px;
+}
+
+.task-row {
+    display: flex;
+}
+
+.progress-title {
+    display: flex;
+    margin-left: 5px;
+}
+
+.new-task-column {
+    display: flex;
+    align-content: flex-end;
+}
