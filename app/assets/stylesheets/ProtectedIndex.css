@@ -1,116 +1,128 @@
 .profile-body {
-    /* background-color: lightblue; */
-    display:flex;
-    margin: 0 auto;
+  display: flex;
+  margin: 5%;
 }
 
 .profile-info {
-    margin: 20px;
-    width: 25%;
+  margin: 20px;
+  width: 25%;
 }
 
 .profile-pic {
-    width: 200px;
-    height: 200px;
-    border-radius: 10rem;
-    object-fit: cover;
-    margin: 20px;
+  width: 200px;
+  height: 200px;
+  border-radius: 10rem;
+  object-fit: cover;
+  margin: 20px;
+  padding-right: 5px;
 }
 
-
 .task-column {
-    /* background-color: lightgoldenrodyellow; */
-    margin: 20px;
-    
+  margin: 20px;
 }
 
 .dropdown {
-    width: 120px;
+  width: 120px;
 }
 
 .update-form {
-    display:flex;
+  display: flex;
 }
 
 .task-button {
-    border-style: none;
-    background-color: rgb(196, 235, 232);
+  border-style: none;
+  background-color: rgb(196, 235, 232);
 }
 
-.likes-task-button, .task-button-btn {
-    border-style: none;
-    background-color: transparent;
+.likes-task-button,
+.task-button-btn {
+  border-style: none;
+  background-color: transparent;
 }
 
 .task-obj-no-like {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 350px;
-    background-color: rgb(196, 235, 232);
-    padding: 10px;
-    border-radius: 2rem;
-    border-style: solid;
-    border-width: 1px;
-    border-color: lightseagreen;
-    margin: 3px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 350px;
+  background-color: rgb(196, 235, 232);
+  padding: 10px;
+  border-radius: 2rem;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightseagreen;
+  margin: 3px;
 }
 
 .task-row {
-    display: flex;
+  display: flex;
 }
 
 #progress-title {
-    display: flex;
-    margin-left: 5px;
+  display: flex;
+  margin-left: 5px;
 }
 
 .new-task-column {
-    display: flex;
-    align-content: flex-end;
+  display: flex;
+  align-content: flex-end;
 }
 
 .progress-title {
-    flex: 1 300px;
+  flex: 1 300px;
 }
 
 .progress-form {
-    z-index:2; 
-    position:absolute;
+  z-index: 2;
+  position: absolute;
 }
 
 .progress-body {
-    position: relative;
+  position: relative;
 }
 
 .priority {
-    flex: 1 10px;
-} 
+  flex: 1 10px;
+}
 
 .extra-info {
-    flex:1 340px;
-    text-align: center;
+  flex: 1 340px;
+  text-align: center;
 }
 
 .likes {
-    margin-top: 12px;
+  margin-top: 12px;
 }
 
 .new-task-button {
-    width: 200px;
-    background-color: lightseagreen;
-    padding: 10px;
-    border-radius: 2rem;
-    border-style: solid;
-    border-width: 1px;
-    border-color: lightseagreen;
-    margin: 3px;
-    color: white;
-    text-align: center;
-    font-weight: bold;
+  width: 200px;
+  background-color: lightseagreen;
+  padding: 10px;
+  border-radius: 2rem;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightseagreen;
+  margin: 3px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
 }
 
 .new-task-button-wrapper {
-    text-align: center;
-    margin: 0 auto;
+  text-align: center;
+  margin: 0 auto;
+}
+
+@media (max-width: 700px) {
+  .profile-body {
+    flex-wrap: wrap;
+    font-size: small;
+  }
+  .about-me-block {
+    display: none;
+  }
+
+  .task-obj-no-like {
+    width: 250px;
+  }
 }

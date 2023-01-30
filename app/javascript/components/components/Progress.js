@@ -51,7 +51,6 @@ const Progress = ({ task, updateTask }) => {
         {(task.progress==="3") &&<FontAwesomeIcon icon={faSquareCheck} />}
         {(task.progress==="2") &&<FontAwesomeIcon icon={faPersonRunning} />}
         {(task.progress==="1") &&<FontAwesomeIcon icon={faSquare} />}
-        {(!task.progress) &&<FontAwesomeIcon icon={faSquare} />}
       </Button>
 
       {/* Here, when toggled, the css attribute "visibility" switches between hidden and visible. This keeps the div in the same place but hides it from sight, versus "display" which is used on Protected Index, which moves the div in and out, moving other elements in its path */}

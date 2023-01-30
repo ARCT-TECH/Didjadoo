@@ -9,6 +9,7 @@ const newTask = ({ createTask, current_user, modalToggle }) => {
     priority: "",
     description: "",
     deadline: "",
+    progress: "1",
     private: "false",
   });
   const handleChangePrivacy = (e) => {

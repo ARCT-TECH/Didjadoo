@@ -47,9 +47,9 @@ const ProtectedIndex = (
           <NavLink to={`/updateuser/${current_user.id}`}>
             <FontAwesomeIcon icon={faPenToSquare} />
           </NavLink>
-          <p>Welcome back, {user.name}!</p>{" "}
+          <p>Welcome back, {user.name}!</p>
 
-          <div>
+          <div className="about-me-block">
             <p>About Me:</p>
             <p className="text-area-display">{user.bio}</p>
           </div>

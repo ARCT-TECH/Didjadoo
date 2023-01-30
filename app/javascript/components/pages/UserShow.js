@@ -22,9 +22,13 @@ const UserShow = ({ logged_in, current_user, users, tasks, updateTask }) => {
     <div className="profile-body">
       <div className="profile-info">
         <img className="profile-pic" src={user.profilepic}></img>
-        <p>{user.name}</p>
-        <div>
-          <p>About Me:</p>
+        <div className="about-me-block">
+          <div className="user-name-title">
+            <strong>
+              {user.bio && <span>About</span>} {user.name}
+            </strong>
+          </div>
+
           <p className="text-area-display">{user.bio}</p>
         </div>
       </div>

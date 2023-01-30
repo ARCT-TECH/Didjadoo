@@ -22,4 +22,9 @@
 
 .text-area-display {
     white-space: pre-wrap;
+    margin-left: 15px;
+}
+
+.user-name-title {
+    margin-left: 20px;
 }

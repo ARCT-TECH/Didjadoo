@@ -26,8 +26,8 @@ const Header = ({
   return (
     <section className="wholeheader">
       <div className="brand">
+        <img className="logo" src={logo} alt="logo" />
         <a className="header-brand" href="/">
-          <img className="logo" src={logo} alt="logo" />
           Didjadoo
         </a>
       </div>
