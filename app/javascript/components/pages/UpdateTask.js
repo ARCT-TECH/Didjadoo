@@ -39,7 +39,7 @@ const UpdateTask = ({ tasks, updateTask, current_user }) => {
   };
 
   return (
-    <div className="task-update">
+    <div className="update-form-style">
       <h1>Update Task</h1>
       <Form>
         <FormGroup>
@@ -68,10 +68,10 @@ const UpdateTask = ({ tasks, updateTask, current_user }) => {
         </FormGroup>
         <FormGroup>
           <Label for="description">Description</Label>
-          <Input className="input-style"
+          <Input className="input-style" 
             name="description"
             onChange={handleChange}
-            type="text"
+            type="textarea"
             value={editTask.description}
           />
         </FormGroup>

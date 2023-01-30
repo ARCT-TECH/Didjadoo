@@ -26,15 +26,11 @@ const Header = ({
   return (
     <section className="wholeheader">
       <div className="brand">
+        <img className="logo" src={logo} alt="logo" />
         <a className="header-brand" href="/">
-          <img className="logo" src={logo} alt="logo" />
           Didjadoo
         </a>
       </div>
-      <input id="menu-toggle" type="checkbox" />
-      <label class="menu-button-container" for="menu-toggle">
-        <div class="menu-button"></div>
-      </label>
       <div className="navigation">
         {!logged_in && (
           <div className="loggedout">
