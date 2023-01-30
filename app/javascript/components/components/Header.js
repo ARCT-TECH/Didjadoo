@@ -57,7 +57,7 @@ const Header = ({
 
             <div className="link">
               <NavLink to="/protectedindex" className="nav-link">
-                My To Do List
+                My Profile
               </NavLink>
             </div>
 

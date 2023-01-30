@@ -19,7 +19,7 @@ const LandingPage = ({
           <div className="video-wrapper">
             <video playsInline autoPlay muted loop>
               <source
-                src="https://vod-progressive.akamaized.net/exp=1674876191~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F2851%2F11%2F289258217%2F1094756916.mp4~hmac=7607cfb210da905ca734cb554c230fd75006b0f24d154bd00040d314060abe98/vimeo-prod-skyfire-std-us/01/2851/11/289258217/1094756916.mp4?download=1&filename=Pexels+Videos+1409899.mp4"
+                src="https://vod-progressive.akamaized.net/exp=1675116963~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F2851%2F11%2F289258217%2F1094756918.mp4~hmac=084983762cdb3eb32b6758ec9b12b6a64af8b8cd673db2cc08f0523fcbc9c331/vimeo-prod-skyfire-std-us/01/2851/11/289258217/1094756918.mp4?download=1&filename=Pexels+Videos+1409899.mp4"
                 type="video/mp4"
               />
             </video>

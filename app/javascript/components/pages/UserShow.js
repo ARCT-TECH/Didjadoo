@@ -19,82 +19,89 @@ const UserShow = ({ logged_in, current_user, users, tasks, updateTask }) => {
     });
   }
   return (
-    <div className="profile-body" style={{ 
-        backgroundImage: `url("https://images.pexels.com/photos/4321802/pexels-photo-4321802.jpeg?cs=srgb&dl=pexels-jess-loiterton-4321802.jpg&fm=jpg&_gl=1*jv2fmu*_ga*MTAwNjkyODU1MS4xNjc0Njc2MjMz*_ga_8JE65Q40S6*MTY3NTA5MzU3OC43LjEuMTY3NTA5Mzg1NS4wLjAuMA..")` 
-      }}>
-      <div className="profile-info">
-        <img className="profile-pic" src={user.profilepic}></img>
-        <div className="about-me-block">
-          <div className="user-name-title">
-            <strong>
-              {user.bio && <span>About</span>} {user.name}
-            </strong>
+    <div
+      className="profile-background"
+      style={{
+        backgroundImage: `url("https://images.pexels.com/photos/4321802/pexels-photo-4321802.jpeg?cs=srgb&dl=pexels-jess-loiterton-4321802.jpg&fm=jpg&_gl=1*jv2fmu*_ga*MTAwNjkyODU1MS4xNjc0Njc2MjMz*_ga_8JE65Q40S6*MTY3NTA5MzU3OC43LjEuMTY3NTA5Mzg1NS4wLjAuMA..")`,
+      }}
+    >
+      <div className="profile-body">
+        <div className="profile-info">
+          <img className="profile-pic" src={user.profilepic}></img>
+          <div className="about-me-block">
+            <div className="user-name-title">
+              <strong>
+                {user.bio && <span>About</span>} {user.name}
+              </strong>
+            </div>
+
+            <p className="text-area-display">{user.bio}</p>
           </div>
-
-          <p className="text-area-display">{user.bio}</p>
         </div>
-      </div>
-      <div className="task-column">
-        My Tasks:
-        {publicTasks
-          ?.sort((a, b) => b.priority - a.priority)
-          .map((task, index) => {
-            let priority = "🔵";
-            if (task.priority === "3") {
-              priority = "🔴";
-            } else if (task.priority === "2") {
-              priority = "🟡";
-            } else if (task.priority === "1") {
-              priority = "🟢";
-            } else {
-              priority = "🟢";
-            }
+        <div className="task-column">
+          My Tasks:
+          {publicTasks
+            ?.sort((a, b) => b.priority - a.priority)
+            .map((task, index) => {
+              let priority = "🔵";
+              if (task.priority === "3") {
+                priority = "🔴";
+              } else if (task.priority === "2") {
+                priority = "🟡";
+              } else if (task.priority === "1") {
+                priority = "🟢";
+              } else {
+                priority = "🟢";
+              }
 
-            let progress = "🔵";
-            if (task.progress === "3") {
-              progress = <FontAwesomeIcon icon={faSquareCheck} />;
-            } else if (task.progress === "2") {
-              progress = <FontAwesomeIcon icon={faPersonRunning} />;
-            } else if (task.progress === "1") {
-              progress = <FontAwesomeIcon icon={faSquare} />;
-            } else {
-              progress = <FontAwesomeIcon icon={faSquare} />;
-            }
-            return (
-              <div key={index} className="task-row">
-                <div className="task-obj-no-like">
-                  <div id="progress-title" className="progress-title">
-                    <button
-                      className="task-button"
-                      onClick={() => toggleFunction(task.id)}
+              let progress = "🔵";
+              if (task.progress === "3") {
+                progress = <FontAwesomeIcon icon={faSquareCheck} />;
+              } else if (task.progress === "2") {
+                progress = <FontAwesomeIcon icon={faPersonRunning} />;
+              } else if (task.progress === "1") {
+                progress = <FontAwesomeIcon icon={faSquare} />;
+              } else {
+                progress = <FontAwesomeIcon icon={faSquare} />;
+              }
+              return (
+                <div key={index} className="task-row">
+                  <div className="task-obj-no-like">
+                    <div id="progress-title" className="progress-title">
+                      <button
+                        className="task-button"
+                        onClick={() => toggleFunction(task.id)}
+                      >
+                        <strong>
+                          {progress}
+                          {"  "}
+                          {task.name}
+                        </strong>
+                      </button>
+                    </div>
+                    <div className="priority">{priority}</div>
+                    <div
+                      className="extra-info"
+                      style={{ display: toggle[task.id] ? "block" : "none" }}
                     >
-                      <strong>
-                        {progress}
-                        {"  "}
-                        {task.name}
-                      </strong>
-                    </button>
+                      <div className="text-area-display">
+                        {task.description}
+                      </div>
+                      {task.deadline && <div>Deadline: {task.deadline}</div>}
+                    </div>
                   </div>
-                  <div className="priority">{priority}</div>
-                  <div
-                    className="extra-info"
-                    style={{ display: toggle[task.id] ? "block" : "none" }}
-                  >
-                    <div className="text-area-display">{task.description}</div>
-                    {task.deadline && <div>Deadline: {task.deadline}</div>}
+                  <div className="likes">
+                    <Likes
+                      task={task}
+                      updateTask={updateTask}
+                      current_user={current_user}
+                      users={users}
+                    />
                   </div>
                 </div>
-                <div className="likes">
-                  <Likes
-                    task={task}
-                    updateTask={updateTask}
-                    current_user={current_user}
-                    users={users}
-                  />
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+        </div>
       </div>
     </div>
   );
