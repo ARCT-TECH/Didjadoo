@@ -31,10 +31,6 @@ const Header = ({
           Didjadoo
         </a>
       </div>
-      <input id="menu-toggle" type="checkbox" />
-      <label class="menu-button-container" for="menu-toggle">
-        <div class="menu-button"></div>
-      </label>
       <div className="navigation">
         {!logged_in && (
           <div className="loggedout">

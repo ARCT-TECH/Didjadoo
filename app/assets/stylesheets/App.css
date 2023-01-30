@@ -5,16 +5,21 @@
 
 /* Forms  */
 
-/* .task-update {
-    width: 50%;
+.update-form-style {
+    width: 498px;
     margin: 0 auto;
     margin-top: 1rem;
     border: solid;
-    border-radius: 2rem;
-    background-color: lightseagreen;
-    padding: 1rem;
-} */
+    border-radius: 1px;
+    border-radius: .5rem;
+    padding: 16px;
+}
 
-/* .input-style {
+.input-style {
     width: 80%;
-} */
+    
+}
+
+.text-area-display {
+    white-space: pre-wrap;
+}

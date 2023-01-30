@@ -25,7 +25,7 @@ const UserShow = ({ logged_in, current_user, users, tasks, updateTask }) => {
         <p>{user.name}</p>
         <div>
           <p>About Me:</p>
-          <p>{user.bio}</p>
+          <p className="text-area-display">{user.bio}</p>
         </div>
       </div>
       <div className="task-column">
@@ -74,7 +74,7 @@ const UserShow = ({ logged_in, current_user, users, tasks, updateTask }) => {
                     className="extra-info"
                     style={{ display: toggle[task.id] ? "block" : "none" }}
                   >
-                    <div>{task.description}</div>
+                    <div className="text-area-display">{task.description}</div>
                     {task.deadline && <div>Deadline: {task.deadline}</div>}
                   </div>
                 </div>

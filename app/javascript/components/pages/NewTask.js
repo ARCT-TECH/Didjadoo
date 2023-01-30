@@ -69,7 +69,7 @@ const newTask = ({ createTask, current_user, modalToggle }) => {
           </FormGroup>
           <Label for="description">Description</Label>
           <Input
-            type="text"
+            type="textarea"
             name="description"
             onChange={handleChange}
             value={newTask.description}
