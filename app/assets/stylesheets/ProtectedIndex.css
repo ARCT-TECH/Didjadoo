@@ -1,20 +1,24 @@
 .profile-body {
-  display: flex;
-  margin: 5%;
+    display:flex;
+    margin: 0 auto;
+    height: 100vh;
 }
 
 .profile-info {
-  margin: 20px;
-  width: 25%;
+    margin: 20px;
+    width: 25%;
+    font-weight: bolder;
 }
 
 .profile-pic {
-  width: 200px;
-  height: 200px;
-  border-radius: 10rem;
-  object-fit: cover;
-  margin: 20px;
-  padding-right: 5px;
+    width: 200px;
+    height: 200px;
+    border-radius: 10rem;
+    object-fit: cover;
+    margin: 20px;
+    border-style: solid;
+    border-width: 5px;
+    font-weight: bolder;
 }
 
 .task-column {
