@@ -44,16 +44,18 @@ const ProtectedIndex = (
       <div className="profile-body">
         <div className="profile-info">
           <img className="profile-pic" src={user.profilepic}></img>
-          <p>Welcome back, {user.name}!</p>{" "}
           <NavLink to={`/updateuser/${current_user.id}`}>
             <FontAwesomeIcon icon={faPenToSquare} />
           </NavLink>
+          <p>Welcome back, {user.name}!</p>{" "}
+
           <div>
             <p>About Me:</p>
             <p>{user.bio}</p>
           </div>
         </div>
         <div className="task-column">
+
 
 {/* This div contains the modal logic, including the button and what will be displayed when the button toggles the modal open (the NewTask.js component is rendered in the modal and will be pass props the same way we would render any component in React) */}
 
@@ -164,6 +166,18 @@ const ProtectedIndex = (
                 </div>
               );
             })}
+            <div className="new-task-button-wrapper">
+            <button className="new-task-button" onClick={modalToggle}>New Task</button>
+            <Modal isOpen={modal} modalToggle={modalToggle} {...createTask}>
+              <ModalHeader modalToggle={modalToggle}>Add Task</ModalHeader>
+              <ModalBody>
+                <NewTask modalToggle={modalToggle} createTask={createTask} />
+              </ModalBody>
+              <ModalFooter>
+                <button onClick={modalToggle}>Close</button>
+              </ModalFooter>
+            </Modal>
+          </div>
         </div>
       </div>
     );

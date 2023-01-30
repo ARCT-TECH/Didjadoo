@@ -96,3 +96,22 @@
 .likes {
     margin-top: 12px;
 }
+
+.new-task-button {
+    width: 200px;
+    background-color: lightseagreen;
+    padding: 10px;
+    border-radius: 2rem;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightseagreen;
+    margin: 3px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.new-task-button-wrapper {
+    text-align: center;
+    margin: 0 auto;
+}
