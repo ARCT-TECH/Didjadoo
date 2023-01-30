@@ -41,7 +41,10 @@ const ProtectedIndex = (
 
 
     return (
-      <div className="profile-body">
+      <div className="profile-body" style={{ 
+        backgroundImage: `url("https://images.pexels.com/photos/4321802/pexels-photo-4321802.jpeg?cs=srgb&dl=pexels-jess-loiterton-4321802.jpg&fm=jpg&_gl=1*jv2fmu*_ga*MTAwNjkyODU1MS4xNjc0Njc2MjMz*_ga_8JE65Q40S6*MTY3NTA5MzU3OC43LjEuMTY3NTA5Mzg1NS4wLjAuMA..")` 
+      }}>
+        
         <div className="profile-info">
           <img className="profile-pic" src={user.profilepic}></img>
           <NavLink to={`/updateuser/${current_user.id}`}>
@@ -149,6 +152,7 @@ const ProtectedIndex = (
                   />
                   </div>
                 </div>
+        
               );
             })}
     {/* This div contains the modal logic, including the button and what will be displayed when the button toggles the modal open (the NewTask.js component is rendered in the modal and will be pass props the same way we would render any component in React) */}
