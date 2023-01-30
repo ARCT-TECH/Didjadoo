@@ -47,11 +47,11 @@ const ProtectedIndex = (
           <NavLink to={`/updateuser/${current_user.id}`}>
             <FontAwesomeIcon icon={faPenToSquare} />
           </NavLink>
-          <p>Welcome back, {user.name}!</p>{" "}
+          <p>Welcome back, {user.name}!</p>
 
-          <div>
+          <div className="about-me-block">
             <p>About Me:</p>
-            <p>{user.bio}</p>
+            <p className="text-area-display">{user.bio}</p>
           </div>
         </div>
         <div className="task-column">
@@ -108,7 +108,7 @@ const ProtectedIndex = (
                       className="extra-info"
                       style={{ display: toggle[task.id] ? "block" : "none" }}
                     >
-                      <div>{task.description}</div>
+                      <div className="text-area-display">{task.description}</div>
 
                     {/* This line checks if the attribute deadline has a value assigned, so that the word "Deadline" does not show if there is no deadline.  */}
 

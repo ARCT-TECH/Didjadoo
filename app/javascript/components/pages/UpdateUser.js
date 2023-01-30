@@ -23,9 +23,9 @@ const UpdateUser = ({ updateUser, current_user }) => {
     }
   };
   return (
-    <div>
+    <div className="update-form-style">
       <Form>
-        <h1>Edit Your Profile!</h1>
+        <h1>Edit Your Profile</h1>
         <FormGroup>
           <Label for="name">Name</Label>
           <Input className="input-style"
@@ -34,7 +34,7 @@ const UpdateUser = ({ updateUser, current_user }) => {
             onChange={handleChange}
             value={userParams.name}
           />
-          <Label for="profilepic">Your Profile Pic</Label>
+          <Label for="profilepic">Your profile picture</Label>
           <Input className="input-style"
             type="text"
             name="profilepic"
@@ -42,8 +42,8 @@ const UpdateUser = ({ updateUser, current_user }) => {
             value={userParams.profilepic}
           />
           <Label for="bio">Tell us about you</Label>
-          <Input className="input-style"
-            type="text"
+          <Input className="input-style" 
+            type="textarea"
             name="bio"
             onChange={handleChange}
             value={userParams.bio}
