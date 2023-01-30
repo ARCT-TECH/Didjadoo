@@ -3,12 +3,7 @@ import { NavLink } from "react-router-dom";
 import Progress from "../components/Progress";
 import Likes from "../components/Likes";
 import NewTask from "./NewTask";
-import {
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-} from "reactstrap";
+import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
@@ -39,134 +34,138 @@ const ProtectedIndex = (
     const [modal, setModal] = useState(false);
     const modalToggle = () => setModal(!modal);
 
-
     return (
-      <div className="profile-body" style={{ 
-        backgroundImage: `url("https://images.pexels.com/photos/4321802/pexels-photo-4321802.jpeg?cs=srgb&dl=pexels-jess-loiterton-4321802.jpg&fm=jpg&_gl=1*jv2fmu*_ga*MTAwNjkyODU1MS4xNjc0Njc2MjMz*_ga_8JE65Q40S6*MTY3NTA5MzU3OC43LjEuMTY3NTA5Mzg1NS4wLjAuMA..")` 
-      }}>
-        
-        <div className="profile-info">
-          <img className="profile-pic" src={user.profilepic}></img>
-          <NavLink to={`/updateuser/${current_user.id}`}>
-            <FontAwesomeIcon icon={faPenToSquare} />
-          </NavLink>
-          <p>Welcome back, {user.name}!</p>
+      <div
+        className="profile-background"
+        style={{
+          backgroundImage: `url("https://images.pexels.com/photos/4321802/pexels-photo-4321802.jpeg?cs=srgb&dl=pexels-jess-loiterton-4321802.jpg&fm=jpg&_gl=1*jv2fmu*_ga*MTAwNjkyODU1MS4xNjc0Njc2MjMz*_ga_8JE65Q40S6*MTY3NTA5MzU3OC43LjEuMTY3NTA5Mzg1NS4wLjAuMA..")`,
+        }}
+      >
+        <div className="profile-body">
+          <div className="profile-info">
+            <img className="profile-pic" src={user.profilepic}></img>
+            <NavLink to={`/updateuser/${current_user.id}`}>
+              <FontAwesomeIcon icon={faPenToSquare} />
+            </NavLink>
+            <p>Welcome back, {user.name}!</p>
 
-          <div className="about-me-block">
-            <p>About Me:</p>
-            <p className="text-area-display">{user.bio}</p>
+            <div className="about-me-block">
+              <p>About Me:</p>
+              <p className="text-area-display">{user.bio}</p>
+            </div>
           </div>
-        </div>
-        <div className="task-column">
+          <div className="task-column">
+            {/* By default we are sorting the tasks from highest to lowest priority. .sort() takes arguments a and b, then we can tell it how to sort. Subtracting a from b will return the highest value first. */}
 
+            {myTasks
+              ?.sort((a, b) => b.priority - a.priority)
+              .map((task, index) => {
+                // This variable will check for a tasks privacy value so it can conditionally display a lock icon on the task if it has been marked private. It is placed inside the map() function so that it checks for each separate task.
 
-{/* By default we are sorting the tasks from highest to lowest priority. .sort() takes arguments a and b, then we can tell it how to sort. Subtracting a from b will return the highest value first. */}
+                let privacy = "";
+                if (task.private === "false") {
+                  privacy = "";
+                } else {
+                  privacy = <FontAwesomeIcon icon={faLock} />;
+                }
 
-          {myTasks
-            ?.sort((a, b) => b.priority - a.priority)
-            .map((task, index) => {
+                // This variable checks for the task's priority value so it can conditionally display the correctly colored icon. It is placed inside the map() function so that it checks for each separate task.
 
-// This variable will check for a tasks privacy value so it can conditionally display a lock icon on the task if it has been marked private. It is placed inside the map() function so that it checks for each separate task.
+                let priority = "";
+                if (task.priority === "3") {
+                  priority = "🔴";
+                } else if (task.priority === "2") {
+                  priority = "🟡";
+                } else if (task.priority === "1") {
+                  priority = "🟢";
+                } else {
+                  priority = "🟢";
+                }
 
-              let privacy = "";
-              if (task.private === "false") {
-                privacy = "";
-              } else {
-                privacy = <FontAwesomeIcon icon={faLock}/>;
-              }
-
-// This variable checks for the task's priority value so it can conditionally display the correctly colored icon. It is placed inside the map() function so that it checks for each separate task.
-
-              let priority = "";
-              if (task.priority === "3") {
-                priority = "🔴";
-              } else if (task.priority === "2") {
-                priority = "🟡";
-              } else if (task.priority === "1") {
-                priority = "🟢";
-              } else {
-                priority = "🟢";
-              }
-
-              return (
-                <div key={index} className="task-row">
-                  <div className="task-obj-no-like">
-                    <div id="progress-title" className="progress-title">
-                      <Progress task={task} updateTask={updateTask }/>
-                      <button
-                        className="task-button"
-                        onClick={() => toggleFunction(task.id)}
-                      >
-                        <strong>
-                          {"  "}
-                          {task.name}{"  "}{privacy}
-                        </strong>
-                      </button>
-                    </div>
-                    <div className="priority">{priority}</div>
-
-                    {/* The below div contains the extra information which will expand when the toggle is clicked. It uses in-line styling to check if the specific id being toggled is truthy or falsy, and then sets the css display value to block or none. */}
-
-                    <div
-                      className="extra-info"
-                      style={{ display: toggle[task.id] ? "block" : "none" }}
-                    >
-                      <div className="text-area-display">{task.description}</div>
-
-                    {/* This line checks if the attribute deadline has a value assigned, so that the word "Deadline" does not show if there is no deadline.  */}
-
-                      {task.deadline && <div>Deadline:{" "}{task.deadline}</div>}
-
-                      <button
-                        className="task-button-btn"
-                        onClick={() => {
-
-                          // In react, you can use window.confirm to create a confirmation window before carrying out the button's intended action.
-
-                          var result = window.confirm(
-                            "Are you sure you want to delete this task? Once deleted, it cannot be recovered."
-                          );
-                          if (result) {
-                            deleteTask(task.id);
-                          }
-                        }}
-                      >
-                        <FontAwesomeIcon icon={faTrashCan} />
-                      </button>
-                      <button className="task-button-btn">
-                        <NavLink
-                          to={`/updatetask/${task.id}`}
-                          className="nav-link"
+                return (
+                  <div key={index} className="task-row">
+                    <div className="task-obj-no-like">
+                      <div id="progress-title" className="progress-title">
+                        <Progress task={task} updateTask={updateTask} />
+                        <button
+                          className="task-button"
+                          onClick={() => toggleFunction(task.id)}
                         >
-                          <FontAwesomeIcon icon={faPenToSquare} />
-                        </NavLink>
-                      </button>
+                          <strong>
+                            {"  "}
+                            {task.name}
+                            {"  "}
+                            {privacy}
+                          </strong>
+                        </button>
+                      </div>
+                      <div className="priority">{priority}</div>
+
+                      {/* The below div contains the extra information which will expand when the toggle is clicked. It uses in-line styling to check if the specific id being toggled is truthy or falsy, and then sets the css display value to block or none. */}
+
+                      <div
+                        className="extra-info"
+                        style={{ display: toggle[task.id] ? "block" : "none" }}
+                      >
+                        <div className="text-area-display">
+                          {task.description}
+                        </div>
+
+                        {/* This line checks if the attribute deadline has a value assigned, so that the word "Deadline" does not show if there is no deadline.  */}
+
+                        {task.deadline && <div>Deadline: {task.deadline}</div>}
+
+                        <button
+                          className="task-button-btn"
+                          onClick={() => {
+                            // In react, you can use window.confirm to create a confirmation window before carrying out the button's intended action.
+
+                            var result = window.confirm(
+                              "Are you sure you want to delete this task? Once deleted, it cannot be recovered."
+                            );
+                            if (result) {
+                              deleteTask(task.id);
+                            }
+                          }}
+                        >
+                          <FontAwesomeIcon icon={faTrashCan} />
+                        </button>
+                        <button className="task-button-btn">
+                          <NavLink
+                            to={`/updatetask/${task.id}`}
+                            className="nav-link"
+                          >
+                            <FontAwesomeIcon icon={faPenToSquare} />
+                          </NavLink>
+                        </button>
+                      </div>
+                    </div>
+                    <div className="likes">
+                      <Likes
+                        task={task}
+                        updateTask={updateTask}
+                        current_user={current_user}
+                        users={users}
+                      />
                     </div>
                   </div>
-                  <div className="likes">
-                  <Likes
-                    task={task}
-                    updateTask={updateTask}
-                    current_user={current_user}
-                    users={users}
-                  />
-                  </div>
-                </div>
-        
-              );
-            })}
-    {/* This div contains the modal logic, including the button and what will be displayed when the button toggles the modal open (the NewTask.js component is rendered in the modal and will be pass props the same way we would render any component in React) */}
+                );
+              })}
+            {/* This div contains the modal logic, including the button and what will be displayed when the button toggles the modal open (the NewTask.js component is rendered in the modal and will be pass props the same way we would render any component in React) */}
             <div className="new-task-button-wrapper">
-            <button className="new-task-button" onClick={modalToggle}>New Task</button>
-            <Modal isOpen={modal} modalToggle={modalToggle} {...createTask}>
-              <ModalHeader modalToggle={modalToggle}>Add Task</ModalHeader>
-              <ModalBody>
-                <NewTask modalToggle={modalToggle} createTask={createTask} />
-              </ModalBody>
-              <ModalFooter>
-                <button onClick={modalToggle}>Close</button>
-              </ModalFooter>
-            </Modal>
+              <button className="new-task-button" onClick={modalToggle}>
+                New Task
+              </button>
+              <Modal isOpen={modal} modalToggle={modalToggle} {...createTask}>
+                <ModalHeader modalToggle={modalToggle}>Add Task</ModalHeader>
+                <ModalBody>
+                  <NewTask modalToggle={modalToggle} createTask={createTask} />
+                </ModalBody>
+                <ModalFooter>
+                  <button onClick={modalToggle}>Close</button>
+                </ModalFooter>
+              </Modal>
+            </div>
           </div>
         </div>
       </div>
