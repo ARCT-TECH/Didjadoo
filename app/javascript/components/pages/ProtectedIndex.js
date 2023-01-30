@@ -57,21 +57,6 @@ const ProtectedIndex = (
         <div className="task-column">
 
 
-{/* This div contains the modal logic, including the button and what will be displayed when the button toggles the modal open (the NewTask.js component is rendered in the modal and will be pass props the same way we would render any component in React) */}
-
-          <div>
-            <button onClick={modalToggle}>New Task</button>
-            <Modal isOpen={modal} modalToggle={modalToggle} {...createTask}>
-              <ModalHeader modalToggle={modalToggle}>Add Task</ModalHeader>
-              <ModalBody>
-                <NewTask modalToggle={modalToggle} createTask={createTask} />
-              </ModalBody>
-              <ModalFooter>
-                <button onClick={modalToggle}>Close</button>
-              </ModalFooter>
-            </Modal>
-          </div>
-
 {/* By default we are sorting the tasks from highest to lowest priority. .sort() takes arguments a and b, then we can tell it how to sort. Subtracting a from b will return the highest value first. */}
 
           {myTasks
@@ -104,7 +89,7 @@ const ProtectedIndex = (
                 <div key={index} className="task-row">
                   <div className="task-obj-no-like">
                     <div id="progress-title" className="progress-title">
-                      <Progress task={task} updateTask={updateTask}/>
+                      <Progress task={task} updateTask={updateTask }/>
                       <button
                         className="task-button"
                         onClick={() => toggleFunction(task.id)}
@@ -166,6 +151,7 @@ const ProtectedIndex = (
                 </div>
               );
             })}
+    {/* This div contains the modal logic, including the button and what will be displayed when the button toggles the modal open (the NewTask.js component is rendered in the modal and will be pass props the same way we would render any component in React) */}
             <div className="new-task-button-wrapper">
             <button className="new-task-button" onClick={modalToggle}>New Task</button>
             <Modal isOpen={modal} modalToggle={modalToggle} {...createTask}>

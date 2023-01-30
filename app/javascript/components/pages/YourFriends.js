@@ -24,7 +24,6 @@ const YourFriends = ({ users }) => {
             </NavLink>
 
             <CardTitle tag="h5">{users?.name}</CardTitle>
-            <CardText>{users?.bio}</CardText>
           </div>
         );
       })}

@@ -34,6 +34,7 @@ const Progress = ({ task, updateTask }) => {
     setEditTask({ ...editTask, progress: e.target.value });
   };
   const handleSubmit = () => {
+    toggleFunction(task.id)
     updateTask(editTask, task.id);
     navigate("/protectedindex");
   };

@@ -28,21 +28,21 @@ const UpdateUser = ({ updateUser, current_user }) => {
         <h1>Edit Your Profile!</h1>
         <FormGroup>
           <Label for="name">Name</Label>
-          <Input
+          <Input className="input-style"
             type="text"
             name="name"
             onChange={handleChange}
             value={userParams.name}
           />
           <Label for="profilepic">Your Profile Pic</Label>
-          <Input
+          <Input className="input-style"
             type="text"
             name="profilepic"
             onChange={handleChange}
             value={userParams.profilepic}
           />
           <Label for="bio">Tell us about you</Label>
-          <Input
+          <Input className="input-style"
             type="text"
             name="bio"
             onChange={handleChange}

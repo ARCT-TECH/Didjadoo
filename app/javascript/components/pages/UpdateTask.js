@@ -40,11 +40,11 @@ const UpdateTask = ({ tasks, updateTask, current_user }) => {
 
   return (
     <div className="task-update">
-      <h1>Edit Task</h1>
+      <h1>Update Task</h1>
       <Form>
         <FormGroup>
           <Label for="name">Name</Label>
-          <Input
+          <Input className="input-style"
             name="name"
             onChange={handleChange}
             type="text"
@@ -53,7 +53,7 @@ const UpdateTask = ({ tasks, updateTask, current_user }) => {
         </FormGroup>
         <FormGroup>
           <Label for="Priority">Select</Label>
-          <Input
+          <Input className="input-style"
             id="priority"
             name="priority"
             type="select"
@@ -68,7 +68,7 @@ const UpdateTask = ({ tasks, updateTask, current_user }) => {
         </FormGroup>
         <FormGroup>
           <Label for="description">Description</Label>
-          <Input
+          <Input className="input-style"
             name="description"
             onChange={handleChange}
             type="text"
@@ -77,7 +77,7 @@ const UpdateTask = ({ tasks, updateTask, current_user }) => {
         </FormGroup>
         <FormGroup>
           <Label for="deadline">Deadline</Label>
-          <Input
+          <Input className="input-style"
             name="deadline"
             onChange={handleChange}
             type="date"
@@ -86,7 +86,7 @@ const UpdateTask = ({ tasks, updateTask, current_user }) => {
         </FormGroup>
         <Label check>Make Private:</Label>
         <FormGroup switch>
-          <Input
+          <Input className="input-style"
             type="switch"
             name="private"
             value={editTask.private}

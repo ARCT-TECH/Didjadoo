@@ -1,9 +1,17 @@
 import React, { useState } from "react";
-// import Navigation from "./Navigation";
 import logo from "../assets/logo.png";
-import { Nav, Navbar, NavbarBrand, NavItem, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import {
+  Nav,
+  Navbar,
+  NavbarBrand,
+  NavItem,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "reactstrap";
 import { NavLink } from "react-router-dom";
-import NewTask from "../pages/NewTask"
+import NewTask from "../pages/NewTask";
 
 const Header = ({
   logged_in,
@@ -11,18 +19,22 @@ const Header = ({
   new_user_route,
   sign_in_route,
   sign_out_route,
-  createTask
+  createTask,
 }) => {
   const [modal, setModal] = useState(false);
   const modalToggle = () => setModal(!modal);
   return (
-    <div className="wholeheader">
+    <section className="wholeheader">
       <div className="brand">
         <a className="header-brand" href="/">
           <img className="logo" src={logo} alt="logo" />
           Didjadoo
         </a>
       </div>
+      <input id="menu-toggle" type="checkbox" />
+      <label class="menu-button-container" for="menu-toggle">
+        <div class="menu-button"></div>
+      </label>
       <div className="navigation">
         {!logged_in && (
           <div className="loggedout">
@@ -54,19 +66,16 @@ const Header = ({
             </div>
 
             <div className="link">
-            <button onClick={modalToggle}>New Task</button>
-                <Modal isOpen={modal} modalToggle={modalToggle} {...createTask}>
-                  <ModalHeader modalToggle={modalToggle}>Add Task</ModalHeader>
-                  <ModalBody>
-                    <NewTask
-                      modalToggle={modalToggle}
-                      createTask={createTask}
-                    />
-                  </ModalBody>
-                  <ModalFooter>
-                    <button onClick={modalToggle}>Close</button>
-                  </ModalFooter>
-                </Modal>
+              <a onClick={modalToggle}>New Task</a>
+              <Modal isOpen={modal} modalToggle={modalToggle} {...createTask}>
+                <ModalHeader modalToggle={modalToggle}>Add Task</ModalHeader>
+                <ModalBody>
+                  <NewTask modalToggle={modalToggle} createTask={createTask} />
+                </ModalBody>
+                <ModalFooter>
+                  <button onClick={modalToggle}>Cancel</button>
+                </ModalFooter>
+              </Modal>
             </div>
 
             <div className="link" id="headerbutton">
@@ -77,7 +86,7 @@ const Header = ({
           </>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 
